@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: 0;
+    text-decoration: none;
+    transition: all .3 linear;
+}
+
+body{
+    background: url("https://i.redd.it/tddy4990hfk61.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    flex-wrap: wrap;
+}
+
+.panel{
+    max-width: 50rem;
+    min-height: 5rem;
+    padding: 1.2rem;
+    background: rgba(119, 23, 39, 0.6);
+    border-radius: 1rem;
+    color: #eee;
+    text-align: justify;
+}
+.panel p{
+    padding-top: 1rem;
+}
+
+a{
+    text-decoration: none;
+    color: #eee;
+}
+
+input{
+    background: #ddd;
+    border-radius: .7rem;
+    padding: .7rem;
+    margin: .6rem 0;
+    width: 100%;
+    border: .1rem solid #000;
+}
+
+button{
+    border-radius: .7rem;
+    border: .1rem solid #000;
+    background: #771727;
+    color: #fff;
+    font-size: .8rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 100%;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+h1{
+    text-align: center;
+    color: #eee;
+}
+
+p .center{
+    text-align: center;
+}
+
+.error{
+    padding-top: 1rem;
+    color: #ffffff;
+}

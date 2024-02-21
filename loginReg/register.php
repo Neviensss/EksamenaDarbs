@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mācies ar mums | Reģistrācija</title>
     <link rel="shortcut icon" href="../images/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="logStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
 </head>
 <body>
 <?php
-    require("connect.php");
+    require("../connect.php");
 ?>
 
 <div class="container">
@@ -27,7 +27,6 @@
                 <button type="submit" name="register">Reģistrēties</button>
                 <p>Vai tev jau pastāv konts? <a href="login.php"><b>Ielogoties!</b></a></p>
                 <?php
-                require("connect.php");
                     if(isset($_POST["register"])){
                         $l_lietotajvards = $_POST['lietotajvards'];
                         $l_parole = $_POST['parole'];
