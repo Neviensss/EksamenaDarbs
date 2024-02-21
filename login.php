@@ -17,11 +17,11 @@
 <div class="container">
     <div class="panel">
         <h1>Ielogoties sistēmā:</h1>
-            <form action="" method="POST">
+            <form method="POST">
                 <label>Lietotājvārds:</label>
-                <input type="text" placeholder="Ievadi savu lietotājvārdu" name="lietotajvards">
+                <input type="text" placeholder="Ievadi savu lietotājvārdu" name="lietotajvards" required>
                 <label>Parole:</label>
-                <input type="password" placeholder="Ievadi savu paroli" name="parole">
+                <input type="password" placeholder="Ievadi savu paroli" name="parole" required>
                 <button type="submit" name="autorizeties">Ielogoties</button>
                 <?php
                 require("connect.php");
@@ -48,7 +48,7 @@
                     }
                 ?>
             </form>
-            <p>Vel nav izveidots konts? <a href="register.php"><b>Reģistrēties</b></a></p>
+            <p>Vel nav izveidots konts? <a href="register.php"><b>Reģistrēties!</b></a></p>
     </div>
 </div>
 </body>
