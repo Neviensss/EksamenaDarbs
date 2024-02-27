@@ -16,29 +16,26 @@
         <div class="box-container">
         <div class="box">
             <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=1200&s=1" alt="Image 1">
-            <h2>Bilde1</h2>
+            <h2>Populars1</h2>
         </div>
         <div class="box">
             <img src="https://cdn-img1.imgworlds.com/assets/a5366382-0c26-4726-9873-45d69d24f819.jpg?key=home-gallery" alt="Image 2">
-            <h2>Bilde2</h2>
+            <h2>Populars2</h2>
         </div>
         <div class="box">
             <img src="https://www.imgacademy.com/sites/default/files/img-academy-boarding-school-worlds-most-dedicated.jpg" alt="Image 3">
-            <h2>Bilde3</h2>
+            <h2>Populars3</h2>
         </div>
         <div class="box">
             <img src="https://www.imgacademy.com/sites/default/files/img-academy-boarding-school-worlds-most-dedicated.jpg" alt="Image 3">
-            <h2>Bilde4</h2>
+            <h2>Populars4</h2>
         </div>
         
         </div>
     </section>
-
-    <section id="popCategories">
+    <section id="joinAsMaster">
 
     </section>
-
-    <section id="joinAsMaster"></section>
     <footer>
         <div class="copy">
             <hr>
