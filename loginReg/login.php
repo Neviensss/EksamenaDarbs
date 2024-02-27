@@ -36,7 +36,7 @@
                             while($ieraksts = mysqli_fetch_assoc($atrasanas_rezultats)){
                                 if(password_verify($Parole, $ieraksts["parole"])){
                                     $_SESSION["Lietotajvards"] = $ieraksts["lietotajvards"];
-                                    header("location:./");
+                                    header("location:.././");
                                 }else{
                                     echo "Nepareizs lietotājvārds vai parole!";
                                 }
@@ -48,6 +48,7 @@
                 ?>
             </form>
             <p>Vel nav izveidots konts? <a href="register.php"><b>Reģistrēties!</b></a></p>
+            <p><a href="../index.php"><b>Sākums!</b></a></p>
     </div>
 </div>
 </body>

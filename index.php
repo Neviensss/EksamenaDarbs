@@ -9,24 +9,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
 </head>
 <body>
-    <header>
-        <a href="#" class="logo">LOGO</a>
-        <nav class="navbar">
-            <ul>
-                <li><a href="#">Sākums</a></li>
-                <li><a href="about.php">Par mums</a></li>
-                <li><a href="loginReg/login.php">Ielogoties</a></li>
-                <li><a class="regButton" href="loginReg/register.php">Reģistrēties</a></li>
-            </ul>
-        </nav>
-    </header>
+<?php include("navigation.php") ?>
     
     <section id="popular">
-        <div class="content">
-            <h2>Populārākās tēmas:</h2>
-        </div>
+        <h2>Populārākās tēmas:</h2>
         <div class="box-container">
-
+        <div class="box">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=1200&s=1" alt="Image 1">
+            <h2>Bilde1</h2>
+        </div>
+        <div class="box">
+            <img src="https://cdn-img1.imgworlds.com/assets/a5366382-0c26-4726-9873-45d69d24f819.jpg?key=home-gallery" alt="Image 2">
+            <h2>Bilde2</h2>
+        </div>
+        <div class="box">
+            <img src="https://www.imgacademy.com/sites/default/files/img-academy-boarding-school-worlds-most-dedicated.jpg" alt="Image 3">
+            <h2>Bilde3</h2>
+        </div>
+        <div class="box">
+            <img src="https://www.imgacademy.com/sites/default/files/img-academy-boarding-school-worlds-most-dedicated.jpg" alt="Image 3">
+            <h2>Bilde4</h2>
+        </div>
+        
         </div>
     </section>
 

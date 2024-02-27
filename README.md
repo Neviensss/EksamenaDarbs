@@ -1,1 +1,2 @@
 # EksamenaDarbs
+[] - Izveidot Login Lapu

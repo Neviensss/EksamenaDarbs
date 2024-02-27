@@ -26,6 +26,7 @@
                 <input type="password" placeholder="Ievadi savu paroli atkārtoti" name="parole2" minlength="8" required>
                 <button type="submit" name="register">Reģistrēties</button>
                 <p>Vai tev jau pastāv konts? <a href="login.php"><b>Ielogoties!</b></a></p>
+                <p><a href="../index.php"><b>Sākums!</b></a></p>
                 <?php
                     if(isset($_POST["register"])){
                         $l_lietotajvards = $_POST['lietotajvards'];
