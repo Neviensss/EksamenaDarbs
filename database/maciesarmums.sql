@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2024 at 07:13 AM
+-- Generation Time: Mar 06, 2024 at 11:26 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,26 +42,45 @@ CREATE TABLE `apmacibas` (
 
 INSERT INTO `apmacibas` (`ID`, `Nosaukums`, `Apraksts`, `Attels`, `Statuss`, `Veidotajs`) VALUES
 (1, 'Test', 'daddadadada', 'https://www.imgacademy.com/sites/default/files/img-academy-boarding-school-worlds-most-dedicated.jpg', 'Iesniegts', 'Niks'),
-(2, 'Test2', 'adadda', 'https://www.imgacademy.com/sites/default/files/img-academy-boarding-school-worlds-most-dedicated.jpg', 'Apstiprinats', '');
+(2, 'Test2', 'adadda', 'https://www.imgacademy.com/sites/default/files/img-academy-boarding-school-worlds-most-dedicated.jpg', 'Apstiprinats', ''),
+(5, 'testssssss', 'dadadsdad', 'nav', 'Atverts', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `testuser`
+-- Table structure for table `lietot_piet`
 --
 
-CREATE TABLE `testuser` (
+CREATE TABLE `lietot_piet` (
   `id` int(11) NOT NULL,
   `lietotajvards` varchar(50) NOT NULL,
-  `parole` varchar(120) NOT NULL
+  `vards` varchar(50) NOT NULL,
+  `uzvards` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `lietotajvards` varchar(50) NOT NULL,
+  `epasts` varchar(120) NOT NULL,
+  `vards` varchar(50) NOT NULL,
+  `uzvards` varchar(50) NOT NULL,
+  `reg_laiks` timestamp NOT NULL DEFAULT current_timestamp(),
+  `parole` varchar(120) NOT NULL,
+  `loma` enum('Lietotajs','Moderators','Administrators','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
 
 --
--- Dumping data for table `testuser`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `testuser` (`id`, `lietotajvards`, `parole`) VALUES
-(3, 'admin', '$2y$10$NNHcIdYh7t9J9WDjNzPVbOqYJ6XaQ08VlpFlWBiWBTo5ds4CeofAy');
+INSERT INTO `users` (`id`, `lietotajvards`, `epasts`, `vards`, `uzvards`, `reg_laiks`, `parole`, `loma`) VALUES
+(3, 'admin', '', '0', '0', '2024-03-06 08:47:18', '$2y$10$NNHcIdYh7t9J9WDjNzPVbOqYJ6XaQ08VlpFlWBiWBTo5ds4CeofAy', 'Administrators');
 
 --
 -- Indexes for dumped tables
@@ -75,9 +94,15 @@ ALTER TABLE `apmacibas`
   ADD KEY `Veidotajs_FK_1` (`Veidotajs`);
 
 --
--- Indexes for table `testuser`
+-- Indexes for table `lietot_piet`
 --
-ALTER TABLE `testuser`
+ALTER TABLE `lietot_piet`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -88,12 +113,18 @@ ALTER TABLE `testuser`
 -- AUTO_INCREMENT for table `apmacibas`
 --
 ALTER TABLE `apmacibas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `testuser`
+-- AUTO_INCREMENT for table `lietot_piet`
 --
-ALTER TABLE `testuser`
+ALTER TABLE `lietot_piet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
