@@ -29,7 +29,7 @@
                         $lietotajvards = mysqli_real_escape_string($savienojums, $_POST["lietotajvards"]);
                         $Parole = mysqli_real_escape_string($savienojums, $_POST["parole"]);
                 
-                        $lietotaja_atrasana_SQL = "SELECT * FROM testuser WHERE lietotajvards = '$lietotajvards'";
+                        $lietotaja_atrasana_SQL = "SELECT * FROM users WHERE lietotajvards = '$lietotajvards'";
                         $atrasanas_rezultats = mysqli_query($savienojums, $lietotaja_atrasana_SQL);
                 
                         if(mysqli_num_rows($atrasanas_rezultats) > 0){

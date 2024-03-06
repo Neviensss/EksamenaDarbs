@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: 0;
+    text-decoration: none;
+    transition: all .3 linear;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: url("https://i.pinimg.com/originals/85/60/83/856083200afa5b856a28ccc2f559a1a1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+:root{
+    --maincolor: #22aad3;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    background-color: #bdbdbd;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+  
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    border: 1px red solid;
+}
+
+.sidebar a:hover{
+    display: block;
+    background: #8f8f8f;
+    padding: 16px;
+    text-decoration: none;
+}
+
+i{
+    font-size: 1.3rem;
+}
+
+#adminPanel{
+    margin-left: 250px;
+    background: rgba(225, 225, 225, .7);
+}
+
+.info-container-admin{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 3rem 5%;
+}
+
+.info-container-admin .box{
+    background: linear-gradient(to bottom right, #098596, #24b8e6);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: .5rem;
+    height: 7rem;
+    width: 18rem;
+}
+
+.info-container-admin .box .info{
+    text-align: center;
+}
+
+.info-container-admin .box .info h3{
+    padding-top: .5rem;
+    text-align: left;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.info-container-admin p{
+    padding-top: .5rem;
+    color: #fff;
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    background: var(#ddd);
+    color: #333;
+    font-size: 1rem;
+    border-radius: .4rem;
+}
+
+.btn:hover{
+    background: var(--maincolor);
+    cursor: pointer;
+    color: #fff;
+}
+
+.apply input[type="text"], .apply input[type="email"], .apply input[type="tel"], .apply input[type="password"], select{
+    padding: 1rem;
+    background: #f6f6f6;
+    color: #333;
+    margin: .4rem 0;
+    font-size: 1rem;
+    border: .1rem solid #999;
+    margin-bottom: 1rem;
+    border-radius: .4rem;
+}
+
+.apply h2{
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--secondcolor);
+}
+
+.apply input{
+    width: 100%;
+    border-radius: .4rem;
+}
+
+table{
+    margin-left: 250px;
+    width: 90%;
+    border-collapse: none;
+    border-spacing: 0 .5rem;
+}
+
+tr{
+    background: #ddd;
+}
+
+th{
+    background: #ddd;
+    padding: 1rem;
+    text-align: left;
+}
+
+td{
+    padding: 1rem;
+}
+
+td img{
+    height: 2.5rem;
+}
+
+td:first-child, th:first-child{
+    border-top-left-radius: .4rem;
+    border-bottom-left-radius: .4rem;
+}
+
+td:last-child, th:last-child{
+    border-top-right-radius: .4rem;
+    border-bottom-right-radius: .4rem;
+}
+
+/* Modal sadaļa */
+
+.modal{
+    position: fixed;
+    background: rgba(0, 0, 0, .5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.modalActive{
+    display: flex;
+}
+
+.modal .apply{
+    background: #ddd;
+    width: 50rem;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem #666;
+    padding: 2rem;
+    position: relative;
+}
+
+.apply .close_modal{
+    position: absolute;
+    right: 2rem;
+    background: var(--maincolor);
+    color: #fff;
+    padding: .5rem;
+    font-size: 0.7rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.apply .close_modal:hover{
+    background: #666;
+}
