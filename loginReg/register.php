@@ -20,6 +20,12 @@
             <form method="POST">
                 <label>Lietotājvārds:</label>
                 <input type="text" placeholder="Ievadi savu lietotājvārdu" name="lietotajvards" required>
+                <label>E-pasts:</label>
+                <input type="text" placeholder="Ievadi savu E-pasta adresi" name="epasts" required>
+                <label>Vārds:</label>
+                <input type="text" placeholder="Ievadi savu vārdu" name="ards" required>
+                <label>Uzvārds:</label>
+                <input type="text" placeholder="Ievadi savu uzvārdu" name="uzvards" required>
                 <label>Parole:</label>
                 <input type="password" placeholder="Ievadi savu paroli" name="parole" minlength="8" required>
                 <label>Parole:</label>

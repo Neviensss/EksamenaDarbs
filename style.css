@@ -81,6 +81,11 @@ footer .copy h2{
     margin: auto;
 }
 
+#new-kursi h2{
+    width: 80%;
+    margin: auto;
+}
+
 .box-container {
     display: flex;
     flex-wrap: wrap;
@@ -112,6 +117,24 @@ footer .copy h2{
   .box h2 {
     margin: 0;
   }
+
+#reasons .container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+
+#reasons .container .box{
+    width: 16rem;
+    margin: 25px;
+    padding: 10px;
+    border: 1px solid #a1a1a1;
+    text-align: center;
+    background: rgb(196, 196, 196)
+}
+
 
 /* Modal */
 
