@@ -13,7 +13,7 @@
     <section id="reasons">
         <div class="container">
             <div class="box">
-                <h3>Dalies ar savām zināšanām</h3>
+                <h3>Dalies ar zināšanām</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque.</p>
             </div>
             <div class="box">
@@ -28,6 +28,12 @@
     </section>
     <section id="begin">
 
+    </section>
+
+    <section id="apply">
+         <h1>Pievienojies kā pasniedzējs jau šodien</h1>
+         <p>Pievienojies mūsu sastāvam</p>
+         <a><button>Pievienoties</button></a>
     </section>
     <footer>
         <div class="copy">

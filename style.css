@@ -135,6 +135,11 @@ footer .copy h2{
     background: rgb(196, 196, 196)
 }
 
+#apply{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
 
 /* Modal */
 
