@@ -23,7 +23,7 @@
                 <label>E-pasts:</label>
                 <input type="text" placeholder="Ievadi savu E-pasta adresi" name="epasts" required>
                 <label>Vārds:</label>
-                <input type="text" placeholder="Ievadi savu vārdu" name="ards" required>
+                <input type="text" placeholder="Ievadi savu vārdu" name="vards" required>
                 <label>Uzvārds:</label>
                 <input type="text" placeholder="Ievadi savu uzvārdu" name="uzvards" required>
                 <label>Parole:</label>
