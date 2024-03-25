@@ -36,18 +36,21 @@
                 <?php
                     if(isset($_POST["register"])){
                         $l_lietotajvards = $_POST['lietotajvards'];
+                        $l_epasts = $_POST['epasts'];
+                        $l_vards = $_POST['vards'];
+                        $l_uzvards = $_POST['uzvards'];
                         $l_parole = $_POST['parole'];
                         $l_parole2 = $_POST['parole2'];
                         $l_realPass = password_hash($l_parole, PASSWORD_DEFAULT);
                         //Daudz pārbaudes ar ievades datiem
                         //Ievadītās paroles garums, izmantotie simboli etc. 
                         if($l_parole == $l_parole2){
-                        $lietotaja_atrasana_SQL = "SELECT * FROM testuser WHERE lietotajvards = '$l_lietotajvards'";
+                        $lietotaja_atrasana_SQL = "SELECT * FROM users WHERE lietotajvards = '$l_lietotajvards'";
                         $atrasanas_rezultats = mysqli_query($savienojums, $lietotaja_atrasana_SQL);
                             if(mysqli_num_rows($atrasanas_rezultats) > 0){
                                 echo "<p class='error'><b>Izvēlētais lietotājvārds nav pieejams!</b></p>";
                             }else{
-                                $register_SQL = "INSERT INTO testuser(lietotajvards, parole) VALUES('$l_lietotajvards', '$l_realPass')";
+                                $register_SQL = "INSERT INTO users(lietotajvards, epasts, vards, uzvards, parole, loma) VALUES('$l_lietotajvards', '$l_epasts', '$l_vards', '$l_uzvards', '$l_realPass', 'Lietotajs')";
                                 $register_result = mysqli_query($savienojums, $register_SQL);
                                 echo "<p><b>Konts veiksmīgi izveidots!</b></p>";
                                 header("Refresh:5 url=login.php");
