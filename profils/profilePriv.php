@@ -12,8 +12,10 @@
 <?php
     include("profile.php");
 ?>
-    <form method="post">
-        <input type="password" minlength="8" maxlength="32">
-    </form>
+    <div class="changePass">
+        <form method="post">
+            <input type="password" minlength="8" maxlength="32">
+        </form>
+    </div>
 </body>
 </html>
