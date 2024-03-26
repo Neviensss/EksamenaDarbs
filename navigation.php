@@ -15,17 +15,15 @@
                 <?php
                     if (!isset($_SESSION['Lietotajvards'])){
                         echo "<li><a href='loginReg/login.php'>Ielogoties</a></li>";
-                        echo "<li><a class='regButton' href='loginReg/register.php'>Reģistrēties</a></li>"; 
+                        echo "<li><a class='regButton' href='loginReg/register.php'>Reģistrēties</a></li>";
                     }
-                ?>
-                <div class="dropdown">
-                <li><a><img src="https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png" class="profileImg"></a></li>
-                    <div class="dropdown-content">
-                        <a href="profils/profile.php">Profils</a>
-                        <a href="#">Iestatījumi</a>
-                        <a href="#">Palīdzība</a>
-                        <?php
-                            if (isset($_SESSION['Lietotajvards'])){
+                    if (isset($_SESSION['Lietotajvards'])){
+                        echo "<div class='dropdown'>";
+                        echo "<li><a><img src='https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png' class='profileImg'></a></li>";
+                        echo "<div class='dropdown-content'>";
+                        echo "<a href='profils/profile.php'>Profils</a>";
+                        echo "<a href='#'>Iestatījumi</a>";
+                        echo "<a href='#'>Palīdzība</a>";
                                 echo "<a href='loginReg/logout.php'>Izlogoties</a>";      
                             }
                         ?>

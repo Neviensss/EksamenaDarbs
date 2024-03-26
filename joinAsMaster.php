@@ -36,7 +36,7 @@
     <section id="apply">
          <h1>Pievienojies kā pasniedzējs jau šodien</h1>
          <p>...</p>
-         <a><button class="btn">Pievienoties</button></a>
+         <a><button class="btn" name="atvertPiet">Pievienoties</button></a>
     </section>
     <footer>
         <div class="copy">
@@ -44,5 +44,22 @@
             <h2>Mācies ar mums &copy; 2024</h2>
         </div>
     </footer>
+
+    <div class="modal">
+    <div class="apply">
+        <div class="close_modal"><i class="fas fa-times"></i></div>
+        <h2>Pasniedzēja pieteikums</h2>
+        <form id="pasniedzForma">
+            <div class="formElements">
+                <label>Nosaukums <span>*</span>:</label>
+                <input type="text" id="nosaukums" required>
+                <label>Apraksts <span>*</span>:</label>
+                <input type="text" id="apraksts" required>
+                <input type="hidden" id="pasID">
+            </div>
+            <input type="submit" name="pieteiktPasniedz" value="Iesniegt" class="btn">
+        </form>
+    </div>
+</div>
 </body>
 </html>

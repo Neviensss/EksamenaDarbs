@@ -12,10 +12,13 @@
 <?php
     include("profile.php");
 ?>
+<div class="profileContainer">
     <div class="changePass">
         <form method="post">
+            <label>Mainīt paroli:</label>
             <input type="password" minlength="8" maxlength="32">
         </form>
     </div>
+</div>
 </body>
 </html>
