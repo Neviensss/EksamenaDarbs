@@ -12,5 +12,8 @@
 <?php
     include("profile.php");
 ?>
+<?php
+    include("../footer.php");
+?>
 </body>
 </html>

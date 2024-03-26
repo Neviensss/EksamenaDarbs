@@ -1,6 +1,6 @@
 # EksamenaDarbs
-- [ X ] - Izveidot Login Lapu
-- [ X ] - Izveidot Reģistrācijas Lapu
-- [ ] - Papildināt reģistrāciju ar ievades limitācijām
-- [ ] - Izveidot Sākuma Lapu
-- [ ] - Izveidot Admin Lapu
+- [x] - Izveidot Login Lapu
+- [x] - Izveidot Reģistrācijas Lapu
+- [x] - Papildināt reģistrāciju ar ievades limitācijām
+- [x] - Izveidot Sākuma Lapu
+- [x] - Izveidot Admin Lapu

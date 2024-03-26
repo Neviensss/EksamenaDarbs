@@ -18,10 +18,8 @@
         <a href="privacy.php"><i class="fa-solid fa-envelope-open-text"></i> Privātums</a>
         <a href="#"><i class="fa-solid fa-envelope-open-text"></i> Dzēst kontu</a>
     </div>
-    <footer>
-        <div class="copy">
-            <h2>Mācies ar mums &copy; 2024</h2>
-        </div>
-    </footer>
+    <?php
+        include("../footer.php");
+    ?>
 </body>
 </html>
