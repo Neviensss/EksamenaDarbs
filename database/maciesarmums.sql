@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2024 at 11:26 AM
+-- Generation Time: Mar 26, 2024 at 11:09 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,6 +48,19 @@ INSERT INTO `apmacibas` (`ID`, `Nosaukums`, `Apraksts`, `Attels`, `Statuss`, `Ve
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kategorijas`
+--
+
+CREATE TABLE `kategorijas` (
+  `id` int(11) NOT NULL,
+  `nosaukums` int(50) NOT NULL,
+  `apraksts` varchar(255) NOT NULL,
+  `attels` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lietot_piet`
 --
 
@@ -72,7 +85,7 @@ CREATE TABLE `users` (
   `uzvards` varchar(50) NOT NULL,
   `reg_laiks` timestamp NOT NULL DEFAULT current_timestamp(),
   `parole` varchar(120) NOT NULL,
-  `loma` enum('Lietotajs','Moderators','Administrators','') NOT NULL
+  `loma` enum('Lietotajs','Veidotajs','Moderators','Administrators') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
 
 --
@@ -80,7 +93,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `lietotajvards`, `epasts`, `vards`, `uzvards`, `reg_laiks`, `parole`, `loma`) VALUES
-(3, 'admin', '', '0', '0', '2024-03-06 08:47:18', '$2y$10$NNHcIdYh7t9J9WDjNzPVbOqYJ6XaQ08VlpFlWBiWBTo5ds4CeofAy', 'Administrators');
+(3, 'admin', '', '0', '0', '2024-03-06 08:47:18', '$2y$10$NNHcIdYh7t9J9WDjNzPVbOqYJ6XaQ08VlpFlWBiWBTo5ds4CeofAy', 'Administrators'),
+(4, 'test', 'nekas@nekas.lv', 'Niks', 'Leimanis', '2024-03-25 11:40:24', '$2y$10$RyimTsZi3eF06Q7DkqL5F.cZr5SJy2UyAQ.f3vUFH4nANZ9j21LjO', 'Administrators');
 
 --
 -- Indexes for dumped tables
@@ -92,6 +106,12 @@ INSERT INTO `users` (`id`, `lietotajvards`, `epasts`, `vards`, `uzvards`, `reg_l
 ALTER TABLE `apmacibas`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Veidotajs_FK_1` (`Veidotajs`);
+
+--
+-- Indexes for table `kategorijas`
+--
+ALTER TABLE `kategorijas`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `lietot_piet`
@@ -116,6 +136,12 @@ ALTER TABLE `apmacibas`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `kategorijas`
+--
+ALTER TABLE `kategorijas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `lietot_piet`
 --
 ALTER TABLE `lietot_piet`
@@ -125,7 +151,7 @@ ALTER TABLE `lietot_piet`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
