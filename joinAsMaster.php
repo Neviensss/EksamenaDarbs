@@ -46,18 +46,21 @@
     </section>
     <?php
     if (isset($_POST['atvertPiet'])){
-        $lietotajvards = $_SESSION["Lietotajvards"];
-        $select_SQL = "SELECT vards, uzvards, loma FROM users WHERE lietotajvards = '$lietotajvards'";
-        $select_result = mysqli_query($savienojums, $select_SQL);
-        if(mysqli_num_rows($select_result) > 0){
-            while($ieraksts = mysqli_fetch_assoc($select_result)){
-                $p_vards = $ieraksts['vards'];
-                $p_uzvards = $ieraksts['uzvards'];
-                $p_loma = $ieraksts['loma'];
+        if($_SESSION["Lietotajvards"]){
+            $lietotajvards = $_SESSION["Lietotajvards"];
+            $select_SQL = "SELECT vards, uzvards, loma FROM users WHERE lietotajvards = '$lietotajvards'";
+            $select_result = mysqli_query($savienojums, $select_SQL);
+            if(mysqli_num_rows($select_result) > 0){
+                while($ieraksts = mysqli_fetch_assoc($select_result)){
+                    $p_vards = $ieraksts['vards'];
+                    $p_uzvards = $ieraksts['uzvards'];
+                    $p_loma = $ieraksts['loma'];
+                }
             }
-        }
         $pieteikt_SQL = "INSERT INTO lietot_piet(lietotajvards, vards, uzvards, loma) VALUES('$lietotajvards', '$p_vards', '$p_uzvards', '$p_loma')";
         $pieteikt_result = mysqli_query($savienojums, $pieteikt_SQL);
+        }else
+        header("location:loginReg/login.php");
     }
 
     include("footer.php");
