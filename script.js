@@ -14,3 +14,7 @@ applyBtns.forEach(function(btn){
 closeModal.onclick = function(){
     modal.classList.remove('modalActive')
 }
+
+function pieteikties(){
+    alert("Jūs esat veiksmīgi iesūtījis pieteikumu kā pasniedzējs!")
+}

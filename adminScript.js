@@ -1,6 +1,7 @@
 $(document).ready(function(){
     fetchApmacibas()
     fetchApmacPiet()
+    fetchLietPiet()
 
     function fetchApmacibas(){
         $.ajax({
@@ -50,6 +51,32 @@ $(document).ready(function(){
                 })
 
                 $('#apmacibasPiet').html(template)
+            }
+        })
+    }
+
+    function fetchLietPiet(){
+        $.ajax({
+            url: 'sarakstsLiet.php',
+            type: 'GET',
+            success: function(response){
+                const pieteikums = JSON.parse(response)
+                let template = ''
+                pieteikums.forEach(pieteik =>{
+                    template += `
+                        <tr apmID ="${pieteik.id}">
+                            <td>${pieteik.id}</td>
+                            <td>${pieteik.lietotajvards}</td>
+                            <td>${pieteik.vards}</td>
+                            <td>${pieteik.uzvards}</td>
+                            <td>${pieteik.loma}</td>
+                            <td><a><button class="btn">Apstiprināt</button></a></td>
+                            <td><a><button class="btn">Noraidīt</button></a></td>
+                        </tr>
+                    `
+                })
+
+                $('#lietotajPieteikumi').html(template)
             }
         })
     }

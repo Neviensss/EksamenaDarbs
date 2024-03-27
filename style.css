@@ -166,7 +166,7 @@ footer .copy h2{
 .btn{
     display: inline-block;
     margin: 1rem 0;
-    padding: 1rem 2rem;
+    padding: 0 2rem;
     background: #b4b4b4;
     color: #333;
     font-size: 1rem;
