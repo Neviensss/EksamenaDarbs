@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2024 at 11:09 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Apr 08, 2024 at 01:16 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `apmacibas` (
   `ID` int(11) NOT NULL,
-  `Nosaukums` varchar(50) NOT NULL,
-  `Apraksts` varchar(255) NOT NULL,
-  `Attels` varchar(255) NOT NULL,
-  `Statuss` enum('Iesniegts','Atverts','Apstiprinats','Noraidits','Slepts') NOT NULL,
-  `Veidotajs` varchar(50) NOT NULL
+  `Nosaukums` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
+  `Apraksts` varchar(255) COLLATE utf8_latvian_ci NOT NULL,
+  `Attels` varchar(255) COLLATE utf8_latvian_ci NOT NULL,
+  `Statuss` enum('Iesniegts','Atverts','Apstiprinats','Noraidits','Slepts') COLLATE utf8_latvian_ci NOT NULL,
+  `Veidotajs` varchar(50) COLLATE utf8_latvian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
 
 --
@@ -48,27 +48,48 @@ INSERT INTO `apmacibas` (`ID`, `Nosaukums`, `Apraksts`, `Attels`, `Statuss`, `Ve
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategorijas`
---
-
-CREATE TABLE `kategorijas` (
-  `id` int(11) NOT NULL,
-  `nosaukums` int(50) NOT NULL,
-  `apraksts` varchar(255) NOT NULL,
-  `attels` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `lietot_piet`
 --
 
 CREATE TABLE `lietot_piet` (
   `id` int(11) NOT NULL,
-  `lietotajvards` varchar(50) NOT NULL,
-  `vards` varchar(50) NOT NULL,
-  `uzvards` varchar(50) NOT NULL
+  `lietotajvards` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
+  `vards` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
+  `uzvards` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
+  `loma` varchar(50) COLLATE utf8_latvian_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
+
+--
+-- Dumping data for table `lietot_piet`
+--
+
+INSERT INTO `lietot_piet` (`id`, `lietotajvards`, `vards`, `uzvards`, `loma`) VALUES
+(1, 'test', 'Niks', 'Leimanis', 'Administrators');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logfiles`
+--
+
+CREATE TABLE `logfiles` (
+  `ID` int(11) NOT NULL,
+  `Autors` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
+  `Apraksts` varchar(255) COLLATE utf8_latvian_ci NOT NULL,
+  `Laiks` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pirkumi`
+--
+
+CREATE TABLE `pirkumi` (
+  `ID` int(11) NOT NULL,
+  `PirkumsID` varchar(255) COLLATE utf8_latvian_ci NOT NULL,
+  `Pircejs` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
+  `Cena` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
 
 -- --------------------------------------------------------
@@ -79,22 +100,23 @@ CREATE TABLE `lietot_piet` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `lietotajvards` varchar(50) NOT NULL,
-  `epasts` varchar(120) NOT NULL,
-  `vards` varchar(50) NOT NULL,
-  `uzvards` varchar(50) NOT NULL,
+  `lietotajvards` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
+  `epasts` varchar(120) COLLATE utf8_latvian_ci NOT NULL,
+  `vards` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
+  `uzvards` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
   `reg_laiks` timestamp NOT NULL DEFAULT current_timestamp(),
-  `parole` varchar(120) NOT NULL,
-  `loma` enum('Lietotajs','Veidotajs','Moderators','Administrators') NOT NULL
+  `parole` varchar(120) COLLATE utf8_latvian_ci NOT NULL,
+  `loma` enum('Lietotajs','Veidotajs','Moderators','Administrators') COLLATE utf8_latvian_ci NOT NULL,
+  `attels` varchar(255) COLLATE utf8_latvian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `lietotajvards`, `epasts`, `vards`, `uzvards`, `reg_laiks`, `parole`, `loma`) VALUES
-(3, 'admin', '', '0', '0', '2024-03-06 08:47:18', '$2y$10$NNHcIdYh7t9J9WDjNzPVbOqYJ6XaQ08VlpFlWBiWBTo5ds4CeofAy', 'Administrators'),
-(4, 'test', 'nekas@nekas.lv', 'Niks', 'Leimanis', '2024-03-25 11:40:24', '$2y$10$RyimTsZi3eF06Q7DkqL5F.cZr5SJy2UyAQ.f3vUFH4nANZ9j21LjO', 'Administrators');
+INSERT INTO `users` (`id`, `lietotajvards`, `epasts`, `vards`, `uzvards`, `reg_laiks`, `parole`, `loma`, `attels`) VALUES
+(3, 'admin', '', '0', '0', '2024-03-06 08:47:18', '$2y$10$NNHcIdYh7t9J9WDjNzPVbOqYJ6XaQ08VlpFlWBiWBTo5ds4CeofAy', 'Administrators', ''),
+(4, 'test', 'epasts@nekas.lv', 'Niks', 'Leimanis', '2024-03-25 11:40:24', '$2y$10$y4z3i0I3WR8iwXZTdO.ir.8afVfoFffUpmaki0nbU2/80W/anq82a', 'Administrators', '');
 
 --
 -- Indexes for dumped tables
@@ -108,16 +130,22 @@ ALTER TABLE `apmacibas`
   ADD KEY `Veidotajs_FK_1` (`Veidotajs`);
 
 --
--- Indexes for table `kategorijas`
---
-ALTER TABLE `kategorijas`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `lietot_piet`
 --
 ALTER TABLE `lietot_piet`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `logfiles`
+--
+ALTER TABLE `logfiles`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `pirkumi`
+--
+ALTER TABLE `pirkumi`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `users`
@@ -136,16 +164,22 @@ ALTER TABLE `apmacibas`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `kategorijas`
---
-ALTER TABLE `kategorijas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `lietot_piet`
 --
 ALTER TABLE `lietot_piet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `logfiles`
+--
+ALTER TABLE `logfiles`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pirkumi`
+--
+ALTER TABLE `pirkumi`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -1,3 +1,8 @@
+<?php
+    if (!isset($_SESSION['Lietotajvards'])){
+        session_start();
+    }
+?>
 <!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -9,15 +14,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
 </head>
 <body>
-    <div class="sidebar">
-        <a href="../index.php" class="logo">LOGO</a>
-        <a href="publicProfile.php"><i class="fa-solid fa-house-user"></i> Apskatīt publisko profilu</a>
-        <a href="profilePriv.php"><i class="fa-solid fa-envelope-open-text"></i> Profils</a>
-        <a href="transactionHistory.php"><i class="fa-solid fa-envelope-open-text"></i> Pirkumu vēsture</a>
-        <a href="paymentMethods.php"><i class="fa-solid fa-envelope-open-text"></i> Maksāšanas veidi</a>
-        <a href="privacy.php"><i class="fa-solid fa-envelope-open-text"></i> Privātums</a>
-        <a href="#"><i class="fa-solid fa-envelope-open-text"></i> Dzēst kontu</a>
-    </div>
+    <?php
+        include("profileNav.php");
+    ?>
     <?php
         include("../footer.php");
     ?>
