@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2024 at 01:16 AM
+-- Generation Time: Apr 10, 2024 at 09:59 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -64,7 +64,7 @@ CREATE TABLE `lietot_piet` (
 --
 
 INSERT INTO `lietot_piet` (`id`, `lietotajvards`, `vards`, `uzvards`, `loma`) VALUES
-(1, 'test', 'Niks', 'Leimanis', 'Administrators');
+(16, 'test', 'Niks', 'Leimanis', 'Administrators');
 
 -- --------------------------------------------------------
 
@@ -167,7 +167,7 @@ ALTER TABLE `apmacibas`
 -- AUTO_INCREMENT for table `lietot_piet`
 --
 ALTER TABLE `lietot_piet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `logfiles`
