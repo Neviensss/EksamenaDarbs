@@ -64,14 +64,14 @@ $(document).ready(function(){
                 let template = ''
                 pieteikums.forEach(pieteik =>{
                     template += `
-                        <tr apmID ="${pieteik.id}">
+                        <tr pietID ="${pieteik.id}">
                             <td>${pieteik.id}</td>
                             <td>${pieteik.lietotajvards}</td>
                             <td>${pieteik.vards}</td>
                             <td>${pieteik.uzvards}</td>
                             <td>${pieteik.loma}</td>
-                            <td><a><button class="btn">Apstiprināt</button></a></td>
-                            <td><a><button class="btn">Noraidīt</button></a></td>
+                            <td><a href="#"><button class="liet-acpt btn">Apstiprināt</button></a></td>
+                            <td><a href="#"><button class="liet-nor btn">Noraidīt</button></a></td>
                         </tr>
                     `
                 })
@@ -89,5 +89,23 @@ $(document).ready(function(){
         $(".modal").hide()
         edit = false
         $("#apmacForma").trigger('reset')
+    })
+
+    $(document).on('click', '.liet-acpt', (e) => {
+            const element = $(this)[0].activeElement.parentElement.parentElement.parentElement
+            const id = $(element).attr('pietID')
+            $.post('apstiprinaVeid.php', {id}, (response) =>{
+                fetchLietPiet()
+            })
+    })
+
+    $(document).on('click', '.liet-nor', (e) => {
+        if(confirm('Vai tiešām vēlies noraidīt šo pieteikumu?')){
+            const element = $(this)[0].activeElement.parentElement.parentElement.parentElement
+            const id = $(element).attr('pietID')
+            $.post('noraidVeid.php', {id}, (response) =>{
+                fetchLietPiet()
+            })
+        }
     })
 })

@@ -41,7 +41,7 @@
         <form method="post">
             <h1>Pievienojies kā pasniedzējs jau šodien</h1>
             <p></p>
-            <a><button type="submit" class="btn" name="atvertPiet" onclick="pieteikties()">Pievienoties</button></a>
+            <a><button type="submit" class="btn" name="atvertPiet">Pievienoties</button></a>
          </form>
     </section>
     <?php
@@ -49,16 +49,22 @@
         if($_SESSION["Lietotajvards"]){
             $lietotajvards = $_SESSION["Lietotajvards"];
             $select_SQL = "SELECT vards, uzvards, loma FROM users WHERE lietotajvards = '$lietotajvards'";
+            $select_piet = "SELECT * FROM lietot_piet WHERE lietotajvards = '$lietotajvards'";
+            $select_piet_result = mysqli_query($savienojums, $select_piet);
             $select_result = mysqli_query($savienojums, $select_SQL);
-            if(mysqli_num_rows($select_result) > 0){
+            if(mysqli_num_rows($select_piet_result) >=1 ){
+                echo "Jūs jau esat iesūtījis pieteikumu!";
+            }
+            else if(mysqli_num_rows($select_result) > 0){
                 while($ieraksts = mysqli_fetch_assoc($select_result)){
                     $p_vards = $ieraksts['vards'];
                     $p_uzvards = $ieraksts['uzvards'];
                     $p_loma = $ieraksts['loma'];
-                }
             }
-        $pieteikt_SQL = "INSERT INTO lietot_piet(lietotajvards, vards, uzvards, loma) VALUES('$lietotajvards', '$p_vards', '$p_uzvards', '$p_loma')";
-        $pieteikt_result = mysqli_query($savienojums, $pieteikt_SQL);
+            $pieteikt_SQL = "INSERT INTO lietot_piet(lietotajvards, vards, uzvards, loma) VALUES('$lietotajvards', '$p_vards', '$p_uzvards', '$p_loma')";
+            $pieteikt_result = mysqli_query($savienojums, $pieteikt_SQL);
+            echo "Pieteikums veiksmīgi iesniegts!";
+        }
         }else
         header("location:loginReg/login.php");
     }
