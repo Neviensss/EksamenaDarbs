@@ -12,5 +12,4 @@ Tās mērķis ir sniegt interesentiem pietiekošu daudzumu ar dažāda veida mei
 - [ ] - Papildināt Sākuma sadaļu vizuāli un funkcionāli
 - [x] - Izveidot Administrācijas sadaļu
 - [ ] - Papildināt Administrācijas sadaļu vizuāli un funkcionāli
-- [x] - 
 - [ ] - Veikt stila izmaiņas attiecīgi izvēlētajam noformējumam

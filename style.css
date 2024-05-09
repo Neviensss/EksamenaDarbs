@@ -52,7 +52,7 @@ header nav ul{
 }
 
 header nav ul li{
-    margin-left: 2.5rem;
+    padding: 0 1.25rem;
 }
 
 header nav ul li a{
@@ -105,10 +105,6 @@ footer .copy h2{
     border: 1px solid #a1a1a1;
     text-align: center;
     background: rgb(196, 196, 196)
-}
-
-.box-container .box:hover{
-    background: rgb(153, 152, 152)
 }
 
 .box-container .box img {
