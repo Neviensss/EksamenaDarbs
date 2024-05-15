@@ -206,14 +206,15 @@ display: block;
     background-color: #3e8e41;
 }
 
-.buyButton{
+.buyButton, .checkButton{
     background: var(--maincolor);
     color: #eee;
+    width: 45%;
     padding: .8rem;
-    margin: .4rem 0;
+    margin: .4rem .1rem;
 }
 
-.buyButton:hover{
+.buyButton:hover, .checkButton:hover{
     background: #187b99;
     cursor: pointer;
 }

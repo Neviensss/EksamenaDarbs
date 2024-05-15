@@ -1,3 +1,8 @@
+<?php
+session_start();
+require("../connect.php");
+?>
+
 <!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -10,9 +15,13 @@
 </head>
 <body>
 <?php
-    include("profile.php");
+    if(isset($_SESSION['Lietotajvards'])){
+        include("profileNav.php");
 ?>
 <?php
+}else{
+    header("location:../loginReg/login.php");
+}
     include("../footer.php");
 ?>
 </body>

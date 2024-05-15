@@ -1,10 +1,34 @@
 <?php
 
-    require("../connect.php");
-    if (!isset($_SESSION['Lietotajvards'])){
-        session_start();
-    }
+session_start();
+require("../connect.php");
+?>
+
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mācies ar mums | Profils</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+</head>
+<body>
+
+<?php
+    if(isset($_SESSION['Lietotajvards'])){
+
+    include("profileNav.php");
+
     $lietotajvards = $_SESSION['Lietotajvards'];
+
+    $epasts_sql = "SELECT epasts FROM users WHERE lietotajvards = '$lietotajvards'";
+    $epasts_res = mysqli_query($savienojums, $epasts_sql);
+    if (mysqli_num_rows($epasts_res) > 0) {
+        $row = mysqli_fetch_assoc($epasts_res);
+        $epasts = $row['epasts'];
+    }
 
     if (isset($_POST['mainitEpastu'])) {
         $newEmail = $_POST['epasts'];
@@ -46,28 +70,7 @@
                 }
             }
         }
-?>
 
-<!DOCTYPE html>
-<html lang="lv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mācies ar mums | Profils</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
-</head>
-<body>
-<?php
-    include("profile.php");
-
-    $epasts_sql = "SELECT epasts FROM users WHERE lietotajvards = '$lietotajvards'";
-    $epasts_res = mysqli_query($savienojums, $epasts_sql);
-    if (mysqli_num_rows($epasts_res) > 0) {
-        $row = mysqli_fetch_assoc($epasts_res);
-        $epasts = $row['epasts'];
-    }
 ?>
 <div class="profileContainer">
     <div class="ievade">
@@ -90,6 +93,9 @@
     </div>
 </div>
 <?php
+}else{
+    header("location:../loginReg/login.php");
+}
     include("../footer.php");
 ?>
 </body>

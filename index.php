@@ -1,3 +1,7 @@
+<?php 
+    require("connect.php");
+?>
+
 <!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -9,7 +13,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
 </head>
 <body>
-<?php include("navigation.php") ?>
+<?php
+    include("navigation.php");
+?>
     
     <section id="popular">
         <h2>Populārākās tēmas:</h2>
@@ -28,11 +34,22 @@
     <section id="new-kursi">
         <h2>Jaunākie kursi:</h2>
         <div class="box-container">
-            <div class="box">
-                <img src="https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg" alt="">
-                <h2>Nosaukums</h2>
-                <button class="buyButton">Iegādāties</button>
-            </div>
+            <?php
+            $kurss_sql = "SELECT * FROM apmacibas WHERE Statuss = 'Apstiprinats' ORDER BY ID desc LIMIT 5";
+            $kurss_res = mysqli_query($savienojums, $kurss_sql);
+            while ($row = mysqli_fetch_assoc($kurss_res)) {
+                ?>
+                <div class="box">
+                    <img src="<?php echo $row['Attels']; ?>">
+                    <h2><?php echo $row['Nosaukums']; ?></h2>
+                    <form action="maksajums/checkout.php" method="post">
+                        <button class="buyButton">Iegādāties</button>
+                    </form>
+                    <button class="checkButton">Apskatīt</button>
+                </div>
+                <?php
+            }
+            ?>
         </div>
     </section>
     <?php

@@ -21,8 +21,8 @@
                         echo "<div class='dropdown'>";
                         echo "<li><a><img src='https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png' class='profileImg'></a></li>";
                         echo "<div class='dropdown-content'>";
-                        echo "<a href='profils/profile.php'>Profils</a>";
-                        echo "<a href='#'>Iestatījumi</a>";
+                        echo "<a href='profils/profilePriv.php'>Profils</a>";
+                        echo "<a href='profils/settings.php'>Iestatījumi</a>";
                         echo "<a href='#'>Palīdzība</a>";
                                 echo "<a href='loginReg/logout.php'>Izlogoties</a>";      
                             }
