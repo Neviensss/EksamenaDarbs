@@ -1,9 +1,3 @@
-<?php
-    if (!isset($_SESSION['Lietotajvards'])){
-        session_start();
-    }
-?>
-
 <header>
         <a href="#" class="logo">LOGO</a>
         <nav class="navbar">

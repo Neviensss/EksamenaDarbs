@@ -91,6 +91,14 @@ $(document).ready(function(){
         $("#apmacForma").trigger('reset')
     })
 
+    $(document).on('click', '#openCourse', (e) => {
+        $(".modalCourse").css('display','flex')
+    })
+
+    $(document).on('click', '.close_modalCourse', (e) => {
+        $(".modalCourse").hide()
+    })
+
     $(document).on('click', '.liet-acpt', (e) => {
             const element = $(this)[0].activeElement.parentElement.parentElement.parentElement
             const id = $(element).attr('pietID')

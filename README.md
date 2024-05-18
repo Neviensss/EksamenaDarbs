@@ -16,7 +16,6 @@ Tās mērķis ir sniegt interesentiem pietiekošu daudzumu ar dažāda veida mei
 - [x] - Veikt labojumus un papildināt Session profila sadaļās
 - [ ] - Veikt labojumus un papildināt Session administrācijas sadaļās
 - [x] - Pievienot iespēju veikt maksājumus, kas tiek apstrādāti
-- [ ] - Veicot maksājumu pēc iespējas šifrēt informāciju URL logā
 - [ ] - Izvietot vairākus iespējamus kursus, kurus iespējams iegādāties
-- [ ] - Dot lietotājam iespēju apskatīt kursa informāciju
+- [x] - Dot lietotājam iespēju apskatīt kursa informāciju
 - [ ] - Veikt Debugging pogām, ievades laukiem, maksājumiem, profila izveidei, e-pasta maiņai, lapu pārlādei, sesijām

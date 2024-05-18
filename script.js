@@ -1,6 +1,7 @@
 let applyBtns = document.querySelectorAll('.btnApply')
 let closeModal = document.querySelector('.close_modal')
 let modal = document.querySelector('.modal')
+let modalCourse = document.querySelector('.modalCourse')
 let inputforID = document.querySelector('input[name=apmID]')
 
 applyBtns.forEach(function(btn){
@@ -11,10 +12,14 @@ applyBtns.forEach(function(btn){
     })
 })
 
+applyBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+        modalCourse.classList.add('modalActive')
+        let btnID = btn.getAttribute('value')
+        inputforID.value = btnID
+    })
+})
+
 closeModal.onclick = function(){
     modal.classList.remove('modalActive')
-}
-
-function pieteikties(){
-    alert("Jūs esat veiksmīgi iesūtījis pieteikumu kā pasniedzējs!")
 }

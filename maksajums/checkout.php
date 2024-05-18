@@ -12,7 +12,7 @@
                 "quantity" => 1,
                 "price_data" => [
                     "currency" => "eur",
-                    "unit_amount" => 12000,
+                    "unit_amount" => 2999,
                     "product_data" => [
                         "name" => "Pieeja kursam"
                     ]
