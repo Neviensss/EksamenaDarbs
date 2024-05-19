@@ -16,19 +16,22 @@
     require("../connect.php");
     ?>
 
-<div class="container">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Lietotājvārds</th>
-            <th>Vārds</th>
-            <th>Uzvārds</th>
-            <th>Loma</th>
-            <th></th>
-            <th></th>
-        </tr>
+<div class="content">
+    <h1>Lietotāju Pieteikumi</h1>
+    <div class="container">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Lietotājvārds</th>
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>Loma</th>
+                <th></th>
+                <th></th>
+            </tr>
         <tbody id="lietotajPieteikumi"></tbody>
-    </table>
+        </table>
+    </div>
 </div>
 </body>
 </html>

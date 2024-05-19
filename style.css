@@ -194,6 +194,18 @@ footer .copy h2{
     color: #fff;
 }
 
+.auth{
+    background:rgba(122, 122, 122, 0.1);
+    padding: 1rem;
+    border-radius: .8rem;
+}
+
+.auth:hover{
+    background:rgba(122, 122, 122, 0.1);
+    padding: 1rem;
+    border-radius: .8rem;
+}
+
 #create{
     width: 100%;
     margin: auto;

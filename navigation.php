@@ -8,8 +8,8 @@
                 <li><a href="about.php">Par mums</a></li>
                 <?php
                     if (!isset($_SESSION['Lietotajvards'])){
-                        echo "<li><a href='loginReg/login.php'>Ielogoties</a></li>";
-                        echo "<li><a class='regButton' href='loginReg/register.php'>Reģistrēties</a></li>";
+                        echo "<li><a class='auth' href='loginReg/login.php'>Ielogoties</a></li>";
+                        echo "<li><a class='auth' href='loginReg/register.php'>Reģistrēties</a></li>";
                     }
                     if (isset($_SESSION['Lietotajvards'])){
                         echo "<div class='dropdown'>";

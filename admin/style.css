@@ -15,8 +15,13 @@ html{
     scroll-behavior: smooth;
 }
 
+*::selection{
+    background: var(--maincolor);
+    color: #fff;
+}
+
 body{
-    background: url("https://i.pinimg.com/originals/85/60/83/856083200afa5b856a28ccc2f559a1a1.jpg");
+    background: #ddd;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -26,28 +31,59 @@ body{
 }
 
 .sidebar {
-    margin: 0;
-    padding: 0;
     width: 250px;
-    background-color: #bdbdbd;
+    height: 100vh;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
     position: fixed;
-    height: 100%;
-    overflow: auto;
-}
-  
-.sidebar a {
-    display: block;
-    color: black;
-    padding: 16px;
-    text-decoration: none;
-    border: 1px red solid;
 }
 
-.sidebar a:hover{
-    display: block;
-    background: #8f8f8f;
-    padding: 16px;
+.sidebar .logo {
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    background-color: #444;
+    font-size: 1.5em;
+    font-weight: bold;
     text-decoration: none;
+    color: white;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    padding: 15px 20px;
+    display: block;
+}
+
+.sidebar a:hover, .sidebar a:focus {
+    background-color: #555;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+    text-align: left;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.content h1 {
+    margin-top: 0;
 }
 
 i{
@@ -130,15 +166,27 @@ i{
     border-radius: .4rem;
 }
 
-table{
+.content {
     margin-left: 250px;
-    width: 90%;
+    padding: 20px;
+    flex-grow: 1;
+    overflow: auto;
+    width: calc(100% - 250px);
+}
+
+.container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table{
+    width: 100%;
     border-collapse: none;
     border-spacing: 0 .5rem;
 }
 
 tr{
-    background: #ddd;
+    background: #bbb;
 }
 
 th{
@@ -148,7 +196,7 @@ th{
 }
 
 td{
-    padding: .5rem;
+    padding: .8rem;
 }
 
 td img{

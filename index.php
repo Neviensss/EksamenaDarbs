@@ -45,30 +45,38 @@
         </div>
     </section>
     <section id="new-kursi">
-        <h2>Jaunākie kursi:</h2>
-        <div class="box-container">
-            <?php
-            $kurss_sql = "SELECT * FROM apmacibas WHERE Statuss = 'Apstiprinats' ORDER BY ID desc LIMIT 5";
-            $kurss_res = mysqli_query($savienojums, $kurss_sql);
-            while ($row = mysqli_fetch_assoc($kurss_res)) {
-                ?>
-                <div class="box">
-                    <img src="<?php echo $row['Attels']; ?>"> 
-                    <h2><?php echo $row['Nosaukums']; ?></h2>
-                    <?php
-                    if(isset($_SESSION['Lietotajvards'])){
-                    echo "<form action='maksajums/checkout.php' method='post'>";
-                    }else{
-                        echo "<form action='loginReg/login.php' method='post'>";
-                    }
-                    ?>
-                        <button class="buyButton">Iegādāties</button>
-                    </form>
-                    <button id="openCourse" class="checkButton">Apskatīt</button>
-                </div>
-                <?php
-            }
+    <h2>Jaunākie kursi:</h2>
+    <div class="box-container">
+        <?php
+        $kurss_sql = "SELECT * FROM apmacibas WHERE Statuss = 'Apstiprinats' ORDER BY ID DESC LIMIT 5";
+        $kurss_res = mysqli_query($savienojums, $kurss_sql);
+
+        while ($row = mysqli_fetch_assoc($kurss_res)) {
             ?>
+            <div class="box">
+                <img src="<?php echo $row['Attels']; ?>"> 
+                <h2><?php echo $row['Nosaukums']; ?></h2>
+                <?php
+                if (isset($_SESSION['Lietotajvards'])) {
+                    ?>
+                    <form action="maksajums/checkout.php" method="post">
+                        <input type="hidden" name="kurss_id" value="<?php echo $row['ID']; ?>">
+                        <button type="submit" class="buyButton">Iegādāties</button>
+                    </form>
+                    <?php
+                } else {
+                    ?>
+                    <form action="loginReg/login.php" method="post">
+                        <button type="submit" class="buyButton">Iegādāties</button>
+                    </form>
+                    <?php
+                }
+                ?>
+                <button id="openCourse" class="checkButton">Apskatīt</button>
+            </div>
+            <?php
+        }
+        ?>
         </div>
     </section>
     <div class="modalCourse">
@@ -78,14 +86,22 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi maiores ullam sequi eveniet quo similique quasi, ex itaque unde eos ea suscipit nihil nostrum repellendus natus delectus at maxime! Omnis labore illum animi quisquam ea maiores unde nostrum asperiores aliquam. </p>
                 <img src="https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg?size=626&ext=jpg&ga=GA1.1.2082370165.1715904000&semt=ais_user">
                     <?php
-                    if(isset($_SESSION['Lietotajvards'])){
-                    echo "<form action='maksajums/checkout.php' method='post'>";
-                    }else{
-                        echo "<form action='loginReg/login.php' method='post'>";
+                    if (isset($_SESSION['Lietotajvards'])) {
+                        ?>
+                        <form action="maksajums/checkout.php" method="post">
+                            <input type="hidden" name="kurss_id" value="<?php echo $row['ID']; ?>">
+                            <button type="submit" class="buyButton">Iegādāties</button>
+                        </form>
+                        <?php
+                    } else {
+                        ?>
+                        <form action="loginReg/login.php" method="post">
+                            <button type="submit" class="buyButton">Iegādāties</button>
+                        </form>
+                        <?php
                     }
                     ?>
-                        <button class="buyButton">Iegādāties</button>
-                    </form>
+            </div>
         </div>
     </div>
     <?php

@@ -6,6 +6,7 @@
                 <li><a href="profilePriv.php">Profils</a></li>
                 <li><a href="publicProfile.php">Publiskais profils</a></li>
                 <li><a href="transactionHistory.php">Pirkumu vēsture</a></li>
+                <li><a href="maniKursi.php">Mani kursi</a></li>
                 <?php
                     if (!isset($_SESSION['Lietotajvards'])){
                     }

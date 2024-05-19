@@ -1,7 +1,6 @@
 <?php
-    if (!isset($_SESSION['Lietotajvards'])){
-        session_start();
-    }
+    session_start();
+    
     require('../connect.php');
 
     if(isset($_POST['id'])){
