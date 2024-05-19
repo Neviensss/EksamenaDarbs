@@ -89,7 +89,7 @@
         <div class="apply">
             <div class="close_modalCourse"><i class="fas fa-times"></i></div>
             <h2 id="modalNosaukums">Nosaukums</h2>
-            <p id="modalApraksts">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi maiores ullam sequi eveniet quo similique quasi, ex itaque unde eos ea suscipit nihil nostrum repellendus natus delectus at maxime! Omnis labore illum animi quisquam ea maiores unde nostrum asperiores aliquam.</p>
+            <p id="modalApraksts">Apraksts</p>
             <img id="modalAttels" src="" alt="Course Image">
             <form id="modalForm" action="maksajums/checkout.php" method="post">
                 <input type="hidden" name="kurss_id" id="modalKurssID">
