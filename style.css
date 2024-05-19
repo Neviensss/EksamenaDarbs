@@ -263,49 +263,6 @@ display: block;
     cursor: pointer;
 }
 
-/* Modal */
-
-.modal{
-    position: fixed;
-    background: rgba(0, 0, 0, .5);
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal.modalActive{
-    display: flex;
-}
-
-.modal .apply{
-    background: #ddd;
-    width: 50rem;
-    border-radius: .5rem;
-    box-shadow: 0 .5rem 1rem #666;
-    padding: 2rem;
-    position: relative;
-}
-
-.apply .close_modal{
-    position: absolute;
-    right: 2rem;
-    background: var(--maincolor);
-    color: #fff;
-    padding: .38rem .6rem;
-    font-size: 1rem;
-    border-radius: 2rem;
-    cursor: pointer;
-}
-
-.apply .close_modal:hover{
-    background: #666;
-}
-
 /* Modal logs priekš kursiem */
 
 .modalCourse{

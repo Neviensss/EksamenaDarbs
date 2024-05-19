@@ -6,10 +6,9 @@
                 <li><a href="profilePriv.php">Profils</a></li>
                 <li><a href="publicProfile.php">Publiskais profils</a></li>
                 <li><a href="transactionHistory.php">Pirkumu vēsture</a></li>
+                <li><a href="iegadatieKursi.php">Iegādātie kursi</a></li>
                 <li><a href="maniKursi.php">Mani kursi</a></li>
                 <?php
-                    if (!isset($_SESSION['Lietotajvards'])){
-                    }
                     if (isset($_SESSION['Lietotajvards'])){
                         echo "<div class='dropdown'>";
                         echo "<li><a><img src='https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png' class='profileImg'></a></li>";

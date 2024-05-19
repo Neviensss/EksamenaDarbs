@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -11,7 +15,8 @@
 </head>
 <body>
 <?php 
-    include("adminNav.php");
+    if(isset($_SESSION['Lietotajvards'])){
+        include("adminNav.php");
     require("../connect.php");
 
     $liet_SQL = "SELECT COUNT(*) as liet_sk FROM users";
@@ -60,31 +65,9 @@
         </div>
     </div>
 </section>
-<div class="modal">
-    <div class="apply">
-        <div class="close_modal"><i class="fas fa-times"></i></div>
-        <h2>Apmācība</h2>
-        <form id="apmacForma">
-            <div class="formElements">
-                <label>Nosaukums <span>*</span>:</label>
-                <input type="text" id="nosaukums" required>
-                <label>Apraksts <span>*</span>:</label>
-                <input type="text" id="apraksts" required>
-                <label>Attēls <span>*</span>:</label>
-                <input type="text" id="attels" name="attels" required>
-                <label>Statuss:</label>
-                <select id="statuss">
-                    <option value="Iesniegts">Iesniegts</option>
-                    <option value="Atverts">Atvērts</option>
-                    <option value="Apstiprinats">Apstiprināts</option>
-                    <option value="Noraidits">Noraidīts</option>
-                    <option value="Slepts">Slēpts</option>
-                </select>
-
-                <input type="hidden" id="apmID">
-            </div>
-            <input type="submit" name="pievienotKursu" value="Saglabāt" class="btn">
-        </form>
-    </div>
-</div>
+<?php
+    }else{
+        header("location:../loginReg/login.php");
+    }
+    ?>
 </body>

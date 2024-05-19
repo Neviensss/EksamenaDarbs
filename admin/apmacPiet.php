@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -12,8 +16,9 @@
 </head>
 <body>
     <?php
-    include("adminNav.php");
-    require("../connect.php");
+    if(isset($_SESSION['Lietotajvards'])){
+        include("adminNav.php");
+        require("../connect.php");
     ?>
 
 <div class="container">
@@ -30,5 +35,10 @@
         <tbody id="apmacibasPiet"></tbody>
     </table>
 </div>
+<?php
+    }else{
+        header("location:../loginReg/login.php");
+    }
+    ?>
 </body>
 </html>

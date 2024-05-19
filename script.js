@@ -1,25 +1,29 @@
-let applyBtns = document.querySelectorAll('.btnApply')
-let closeModal = document.querySelector('.close_modal')
-let modal = document.querySelector('.modal')
-let modalCourse = document.querySelector('.modalCourse')
-let inputforID = document.querySelector('input[name=apmID]')
+document.addEventListener('DOMContentLoaded', () => {
+    const modalCourse = document.querySelector('.modalCourse');
+    const closeModalButton = document.querySelector('.close_modalCourse');
+    const modalNosaukums = document.getElementById('modalNosaukums');
+    const modalApraksts = document.getElementById('modalApraksts');
+    const modalAttels = document.getElementById('modalAttels');
+    const modalKurssID = document.getElementById('modalKurssID');
+    const checkButtons = document.querySelectorAll('.checkButton');
 
-applyBtns.forEach(function(btn){
-    btn.addEventListener('click', function(){
-        modal.classList.add('modalActive')
-        let btnID = btn.getAttribute('value')
-        inputforID.value = btnID
-    })
-})
+    checkButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const kurssID = button.getAttribute('data-kurss-id');
+            const kurssNosaukums = button.getAttribute('data-kurss-nosaukums');
+            const kurssApraksts = button.getAttribute('data-kurss-apraksts');
+            const kurssAttels = button.getAttribute('data-kurss-attels');
 
-applyBtns.forEach(function(btn){
-    btn.addEventListener('click', function(){
-        modalCourse.classList.add('modalActive')
-        let btnID = btn.getAttribute('value')
-        inputforID.value = btnID
-    })
-})
+            modalNosaukums.textContent = kurssNosaukums;
+            modalApraksts.textContent = kurssApraksts;
+            modalAttels.src = kurssAttels;
+            modalKurssID.value = kurssID;
 
-closeModal.onclick = function(){
-    modal.classList.remove('modalActive')
-}
+            modalCourse.classList.add('modalActive');
+        });
+    });
+
+    closeModalButton.onclick = function(){
+        modalCourse.classList.remove('modalActive');
+    }
+});

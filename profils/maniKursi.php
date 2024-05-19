@@ -17,34 +17,8 @@ require("../connect.php");
     <?php
         if(isset($_SESSION['Lietotajvards'])){
             include("profileNav.php");
-
-        if (!isset($_SESSION['Lietotajvards'])) {
-            header("Location: ../loginReg/login.php");
-            exit();
-        }
-        $lietotajvards = $_SESSION['Lietotajvards'];
-
-        $query = "SELECT ap.ID, ap.Nosaukums, ap.Attels 
-                FROM pirkumi p
-                JOIN apmacibas ap ON p.kurss_id = ap.ID
-                JOIN users u ON p.pirceja_id = u.ID
-                WHERE u.Lietotajvards = '$lietotajvards'";
-
-        $result = mysqli_query($savienojums, $query);
-
-        ?>
-        <div class="box-container">
-        <?php
-        while ($row = mysqli_fetch_assoc($result)) {
-            ?>
-            <div class="box">
-                <img src="<?php echo $row['Attels']; ?>" alt="Course Image">
-                <h2><?php echo $row['Nosaukums']; ?></h2>
-            </div>
-            <?php
-        }
     ?>
-        </div>
+    
     <?php
     }else{
         header("location:../loginReg/login.php");

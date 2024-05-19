@@ -6,6 +6,5 @@
             <a href="apmacibas.php"><i class="fa-solid fa-table-list"></i> Apmācības</a>
             <a href="apmacPiet.php"><i class="fa-solid fa-envelope-open-text"></i> Apmācību pieteikumi</a>
             <a href="logfiles.php"><i class="fa-solid fa-envelope-open-text"></i> Žurnālfaili</a>
-            <a><button id="new" class="btn">Pievienot</button></a>
         </div>
     </header>

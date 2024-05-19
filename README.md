@@ -19,3 +19,4 @@ Tās mērķis ir sniegt interesentiem pietiekošu daudzumu ar dažāda veida mei
 - [ ] - Izvietot vairākus iespējamus kursus, kurus iespējams iegādāties
 - [x] - Dot lietotājam iespēju apskatīt kursa informāciju
 - [ ] - Veikt Debugging pogām, ievades laukiem, maksājumiem, profila izveidei, e-pasta maiņai, lapu pārlādei, sesijām
+- [ ] - Veikt Debugging joinAsMaster failā, saistībā ar veidotāja lomu un atkārtotu pieteikšanos
