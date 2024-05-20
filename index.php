@@ -22,7 +22,7 @@
         ?>
         <section id="create">
         <h2>Izveido jaunu kursu jau tagat!</h2>
-        <a><button type="submit" class="btn" name="">Izveidot kursu</button></a>
+        <a href="apmacibas/create.php"><button type="submit" class="btn">Izveidot kursu</button></a>
         </section>
         <?php
         }
@@ -96,7 +96,7 @@
                 <button type="submit" class="buyButton">Iegādāties</button>
             </form>
         </div>
-</div>
+    </div>
     <?php
     include("footer.php");
     ?>

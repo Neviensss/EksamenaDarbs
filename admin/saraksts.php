@@ -11,6 +11,7 @@
             'attels' => $row['Attels'],
             'statuss' => $row['Statuss'],
             'veidotajs' => $row['Veidotajs'],
+            'cena' => $row['Cena'],
             'id' => $row['ID']
         );
     }

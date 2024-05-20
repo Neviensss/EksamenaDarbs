@@ -331,7 +331,7 @@ display: block;
     margin: auto;
 }
 
-.ievade input[type="text"], .ievade input[type="email"], .ievade input[type="password"], select{
+.ievade input[type="text"], .ievade input[type="email"], .ievade input[type="password"], .ievade input[type="number"], select{
     padding: 1rem;
     background: #f6f6f6;
     color: #333;
@@ -342,7 +342,7 @@ display: block;
     border-radius: 2rem;
 }
 
-.ievade input[type="text"]:focus, .ievade input[type="email"]:focus, .ievade input[type="password"]:focus, select:focus{
+.ievade input[type="text"]:focus, .ievade input[type="email"]:focus, .ievade input[type="password"]:focus, .ievade input[type="number"]:hover, select:focus{
     border: .1rem solid var(--maincolor);
 }
 

@@ -32,6 +32,7 @@ session_start();
                     <th>Attēls</th>
                     <th>Statuss</th>
                     <th>Veidotājs</th>
+                    <th>Cena</th>
                     <th></th>
                 </tr>
                 <tbody id="apmacibas"></tbody>

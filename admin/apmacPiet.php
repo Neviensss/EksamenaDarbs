@@ -21,19 +21,23 @@ session_start();
         require("../connect.php");
     ?>
 
-<div class="container">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nosaukums</th>
-            <th>Apraksts</th>
-            <th>Attēls</th>
-            <th>Statuss</th>
-            <th>Veidotājs</th>
-            <th></th>
-        </tr>
-        <tbody id="apmacibasPiet"></tbody>
-    </table>
+<div class="content">
+        <h1>Apmācības</h1>
+    <div class="container">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nosaukums</th>
+                <th>Apraksts</th>
+                <th>Attēls</th>
+                <th>Statuss</th>
+                <th>Veidotājs</th>
+                <th>Cena</th>
+                <th></th>
+            </tr>
+            <tbody id="apmacibasPiet"></tbody>
+        </table>
+    </div>
 </div>
 <?php
     }else{

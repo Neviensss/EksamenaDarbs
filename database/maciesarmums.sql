@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2024 at 09:59 PM
+-- Generation Time: May 20, 2024 at 06:50 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -33,17 +33,20 @@ CREATE TABLE `apmacibas` (
   `Apraksts` varchar(255) COLLATE utf8_latvian_ci NOT NULL,
   `Attels` varchar(255) COLLATE utf8_latvian_ci NOT NULL,
   `Statuss` enum('Iesniegts','Atverts','Apstiprinats','Noraidits','Slepts') COLLATE utf8_latvian_ci NOT NULL,
-  `Veidotajs` varchar(50) COLLATE utf8_latvian_ci NOT NULL
+  `Veidotajs` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
+  `Cena` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
 
 --
 -- Dumping data for table `apmacibas`
 --
 
-INSERT INTO `apmacibas` (`ID`, `Nosaukums`, `Apraksts`, `Attels`, `Statuss`, `Veidotajs`) VALUES
-(1, 'Test', 'daddadadada', 'https://www.imgacademy.com/sites/default/files/img-academy-boarding-school-worlds-most-dedicated.jpg', 'Iesniegts', 'Niks'),
-(2, 'Test2', 'adadda', 'https://www.imgacademy.com/sites/default/files/img-academy-boarding-school-worlds-most-dedicated.jpg', 'Apstiprinats', ''),
-(5, 'testssssss', 'dadadsdad', 'nav', 'Atverts', '');
+INSERT INTO `apmacibas` (`ID`, `Nosaukums`, `Apraksts`, `Attels`, `Statuss`, `Veidotajs`, `Cena`) VALUES
+(1, 'Test', 'daddadadada', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', 'Niks', 29.99),
+(2, 'Test2', 'adadda', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '', 59.99),
+(5, 'testssssss', 'dadadsdad', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '', 4.99),
+(11, 'PagaiduKurss', 'aaaaaafafdfsfsdgsdgsgsdgsg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Iesniegts', '4', 6.59),
+(12, 'PagaiduKurss2', 'aaaaaafafdfsfsdgsdgsgsdgsg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Iesniegts', '4', 0.11);
 
 -- --------------------------------------------------------
 
@@ -58,13 +61,6 @@ CREATE TABLE `lietot_piet` (
   `uzvards` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
   `loma` varchar(50) COLLATE utf8_latvian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
-
---
--- Dumping data for table `lietot_piet`
---
-
-INSERT INTO `lietot_piet` (`id`, `lietotajvards`, `vards`, `uzvards`, `loma`) VALUES
-(16, 'test', 'Niks', 'Leimanis', 'Administrators');
 
 -- --------------------------------------------------------
 
@@ -86,11 +82,22 @@ CREATE TABLE `logfiles` (
 --
 
 CREATE TABLE `pirkumi` (
-  `ID` int(11) NOT NULL,
   `PirkumsID` varchar(255) COLLATE utf8_latvian_ci NOT NULL,
-  `Pircejs` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
-  `Cena` float NOT NULL
+  `kurss_id` int(11) NOT NULL,
+  `cena` decimal(10,2) NOT NULL,
+  `pirceja_id` int(11) NOT NULL,
+  `pirkuma_datums` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
+
+--
+-- Dumping data for table `pirkumi`
+--
+
+INSERT INTO `pirkumi` (`PirkumsID`, `kurss_id`, `cena`, `pirceja_id`, `pirkuma_datums`) VALUES
+('pi_3PIDjACeH1OIpMm11f3n88Jl', 2, '59.99', 4, '2024-05-19 17:41:00'),
+('pi_3PIDkUCeH1OIpMm11OKJFGtO', 1, '29.99', 4, '2024-05-19 17:42:21'),
+('pi_3PIHEECeH1OIpMm10OMss2DG', 5, '4.99', 4, '2024-05-19 21:25:17'),
+('pi_3PITIxCeH1OIpMm11YyZ5mNB', 2, '59.99', 4, '2024-05-20 10:18:57');
 
 -- --------------------------------------------------------
 
@@ -145,7 +152,9 @@ ALTER TABLE `logfiles`
 -- Indexes for table `pirkumi`
 --
 ALTER TABLE `pirkumi`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`PirkumsID`),
+  ADD KEY `kurss_id` (`kurss_id`),
+  ADD KEY `pirceja_id` (`pirceja_id`);
 
 --
 -- Indexes for table `users`
@@ -161,13 +170,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `apmacibas`
 --
 ALTER TABLE `apmacibas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `lietot_piet`
 --
 ALTER TABLE `lietot_piet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `logfiles`
@@ -176,16 +185,21 @@ ALTER TABLE `logfiles`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pirkumi`
---
-ALTER TABLE `pirkumi`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pirkumi`
+--
+ALTER TABLE `pirkumi`
+  ADD CONSTRAINT `pirkumi_ibfk_1` FOREIGN KEY (`kurss_id`) REFERENCES `apmacibas` (`ID`),
+  ADD CONSTRAINT `pirkumi_ibfk_2` FOREIGN KEY (`pirceja_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

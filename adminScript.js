@@ -19,6 +19,7 @@ $(document).ready(function(){
                             <td><img src='${apmaciba.attels}' alt='Bilde'></td>
                             <td>${apmaciba.statuss}</td>
                             <td>${apmaciba.veidotajs}</td>
+                            <td>${apmaciba.cena}</td>
                             <td>EDIT</td>
                         </tr>
                     `
@@ -45,6 +46,7 @@ $(document).ready(function(){
                             <td><img src='${apmaciba.attels}'></td>
                             <td>${apmaciba.statuss}</td>
                             <td>${apmaciba.veidotajs}</td>
+                            <td>${apmaciba.cena}</td>
                             <td>EDIT</td>
                         </tr>
                     `
