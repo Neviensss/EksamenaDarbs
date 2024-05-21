@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2024 at 06:50 PM
+-- Generation Time: May 21, 2024 at 11:01 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -42,11 +42,11 @@ CREATE TABLE `apmacibas` (
 --
 
 INSERT INTO `apmacibas` (`ID`, `Nosaukums`, `Apraksts`, `Attels`, `Statuss`, `Veidotajs`, `Cena`) VALUES
-(1, 'Test', 'daddadadada', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', 'Niks', 29.99),
-(2, 'Test2', 'adadda', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '', 59.99),
-(5, 'testssssss', 'dadadsdad', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '', 4.99),
-(11, 'PagaiduKurss', 'aaaaaafafdfsfsdgsdgsgsdgsg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Iesniegts', '4', 6.59),
-(12, 'PagaiduKurss2', 'aaaaaafafdfsfsdgsdgsgsdgsg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Iesniegts', '4', 0.11);
+(1, 'Test', 'daddadadada', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Atverts', 'Niks', 29.99),
+(2, 'Test2', 'adadda', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Atverts', '', 59.99),
+(5, 'testssssss', 'dadadsdad', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Atverts', '', 4.99),
+(11, 'PagaiduKurss', 'aaaaaafafdfsfsdgsdgsgsdgsg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '4', 6.59),
+(12, 'PagaiduKurss2', 'aaaaaafafdfsfsdgsdgsgsdgsg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '4', 0.11);
 
 -- --------------------------------------------------------
 

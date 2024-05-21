@@ -12,7 +12,7 @@
 }
 
 body{
-    background: url("https://i.pinimg.com/originals/85/60/83/856083200afa5b856a28ccc2f559a1a1.jpg");
+    background: #ddd;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -30,8 +30,8 @@ body{
     min-height: 5rem;
     padding: 1.2rem;
     background: rgba(34, 170, 211, 0.7);
-    border-radius: .5rem;
-    border: .2rem solid #ddd;
+    border-radius: .2rem;
+    border: .15rem solid #999;
     color: #000;
     text-align: justify;
 }
@@ -46,15 +46,16 @@ a{
 
 input{
     background: #ddd;
-    border-radius: .7rem;
+    border-radius: 2rem;
     padding: .7rem;
     margin: .6rem 0;
     width: 100%;
+    text-align: center;
     border: .1rem solid #000;
 }
 
 button{
-    border-radius: .7rem;
+    border-radius: 2rem;
     border: .1rem solid #000;
     background: #187692;
     color: #000;
@@ -67,6 +68,10 @@ button{
     text-transform: uppercase;
     cursor: pointer;
     text-decoration: none;
+}
+
+button:hover{
+    background: #219fc5;
 }
 
 h1{
