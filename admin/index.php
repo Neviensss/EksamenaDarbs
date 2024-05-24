@@ -1,5 +1,6 @@
 <?php
 session_start();
+require("../connect.php");
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +17,15 @@ session_start();
 <body>
 <?php 
     if(isset($_SESSION['Lietotajvards'])){
+        $lietotajvards = $_SESSION["Lietotajvards"];
+        $loma_atrasana_SQL = "SELECT loma FROM users WHERE lietotajvards = '$lietotajvards'";
+        $atrasanas_rezultats = mysqli_query($savienojums, $loma_atrasana_SQL);
+        $ieraksts = mysqli_fetch_assoc($atrasanas_rezultats);
+
+        if($ieraksts["loma"] == "Administrators"){
+
         include("adminNav.php");
-    require("../connect.php");
+        require("../connect.php");
 
     $liet_SQL = "SELECT COUNT(*) as liet_sk FROM users";
     $liet_rez = mysqli_query($savienojums, $liet_SQL);
@@ -65,7 +73,10 @@ session_start();
         </div>
     </div>
 </section>
-<?php
+    <?php
+        }else{
+            header("location:../index.php");
+        }
     }else{
         header("location:../loginReg/login.php");
     }

@@ -28,6 +28,7 @@ require("../connect.php");
         $result = mysqli_query($savienojums, $query);
 
         ?>
+        <h2 class="prof">Iegādātie kursi</h2>
         <div class="box-container">
         <?php
         while ($row = mysqli_fetch_assoc($result)) {
@@ -35,6 +36,7 @@ require("../connect.php");
             <div class="box">
                 <img src="<?php echo $row['Attels']; ?>" alt="Course Image">
                 <h2><?php echo $row['Nosaukums']; ?></h2>
+                <button type="submit" class="openButton">Skatīt</button>
             </div>
             <?php
         }

@@ -18,46 +18,18 @@
 <body>
 <?php
     include("navigation.php");
-
-    if(isset($_SESSION['Lietotajvards'])){
-        $lietotajvards = $_SESSION["Lietotajvards"];
-        $loma_atrasana_SQL = "SELECT loma FROM users WHERE lietotajvards = '$lietotajvards'";
-        $atrasanas_rezultats = mysqli_query($savienojums, $loma_atrasana_SQL);
-        $ieraksts = mysqli_fetch_assoc($atrasanas_rezultats);
-
-        if($ieraksts["loma"] == "Veidotajs" || $ieraksts["loma"] == "Administrators"){
-        ?>
-        <section id="create">
-        <h2>Izveido jaunu kursu jau tagat!</h2>
-        <a href="profils/create.php"><button type="submit" class="btn">Izveidot kursu</button></a>
-        </section>
-        <?php
+    $category = $_GET['category'] ?? 'all';
+        if(htmlspecialchars($category) == 'all'){
+            $kurss_sql = "SELECT * FROM apmacibas WHERE Statuss = 'Apstiprinats' ORDER BY ID DESC";
+        }else{
+            $kurss_sql = "SELECT * FROM apmacibas WHERE Statuss = 'Apstiprinats' AND kategorija = '$category' ORDER BY ID DESC";
         }
-    }
         ?>
-    <section id="popular">
-        <h2>Populārākās kategorijas:</h2>
-        <div class="box-container">
-        <div class="box">
-            <h2>Kategorija1</h2>
-        </div>
-        <div class="box">
-            <h2>Kategorija2</h2>
-        </div>
-        <div class="box">
-            <h2>Kategorija3</h2>
-        </div>
-        <div class="box">
-            <h2>Kategorija4</h2>
-        </div>
-        
-        </div>
     </section>
     <section id="new-kursi">
-    <h2>Jaunākie kursi:</h2>
+    <h2>Pieejamie kursi:</h2>
     <div class="box-container">
         <?php
-        $kurss_sql = "SELECT * FROM apmacibas WHERE Statuss = 'Apstiprinats' ORDER BY ID DESC LIMIT 4";
         $kurss_res = mysqli_query($savienojums, $kurss_sql);
 
         while ($row = mysqli_fetch_assoc($kurss_res)) {

@@ -14,16 +14,41 @@ require("../connect.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
 </head>
 <body>
-    <?php
+<?php
         if(isset($_SESSION['Lietotajvards'])){
             include("profileNav.php");
+            $lietotajvards = $_SESSION['Lietotajvards'];
+
+        $select_user_id = "SELECT ID FROM users WHERE lietotajvards = '$lietotajvards'";
+            $user_result = mysqli_query($savienojums, $select_user_id);
+            $user = mysqli_fetch_assoc($user_result);
+            $lietotajs = $user['ID'];
+
+        $query = "SELECT Nosaukums, Attels from apmacibas WHERE Veidotajs='$lietotajs'";
+
+        $result = mysqli_query($savienojums, $query);
+
+        ?>
+        <h2 class="prof">Mani kursi</h2>
+        <div class="box-container">
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+            <div class="box">
+                <img src="<?php echo $row['Attels']; ?>" alt="Course Image">
+                <h2><?php echo $row['Nosaukums']; ?></h2>
+                <button type="submit" class="editButton">Rediģēt</button>
+            </div>
+            <?php
+        }
     ?>
-    
+        </div>
     <?php
     }else{
         header("location:../loginReg/login.php");
     }
         include("../footer.php");
     ?>
+
 </body>
 </html>

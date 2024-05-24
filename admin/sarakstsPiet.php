@@ -1,7 +1,9 @@
 <?php
     require('../connect.php');
 
-    $apm_SQL = "SELECT * FROM apmacibas WHERE statuss='Iesniegts' ORDER BY ID";
+    
+
+    $apm_SQL = "SELECT * FROM apmacibas WHERE statuss='Iesniegts' or statuss = 'Atverts' ORDER BY ID";
     $apm_result = mysqli_query($savienojums, $apm_SQL);
 
     while($row = mysqli_fetch_array($apm_result)){

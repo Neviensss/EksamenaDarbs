@@ -72,6 +72,7 @@ require("../connect.php");
         }
 
 ?>
+<h2 class="prof">Mans profils</h2>
 <div class="profileContainer">
     <div class="ievade">
         <form method="post">

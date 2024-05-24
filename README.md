@@ -14,7 +14,7 @@ Tās mērķis ir sniegt interesentiem pietiekošu daudzumu ar dažāda veida mei
 - [ ] - Papildināt Administrācijas sadaļu vizuāli un funkcionāli
 - [ ] - Veikt stila izmaiņas attiecīgi izvēlētajam noformējumam
 - [x] - Veikt labojumus un papildināt Session profila sadaļās
-- [ ] - Veikt labojumus un papildināt Session administrācijas sadaļās
+- [x] - Veikt labojumus un papildināt Session administrācijas sadaļās
 - [x] - Pievienot iespēju veikt maksājumus, kas tiek apstrādāti
 - [ ] - Izvietot vairākus iespējamus kursus, kurus iespējams iegādāties
 - [x] - Dot lietotājam iespēju apskatīt kursa informāciju

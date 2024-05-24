@@ -20,7 +20,7 @@ $(document).ready(function(){
                             <td>${apmaciba.statuss}</td>
                             <td>${apmaciba.veidotajs}</td>
                             <td>${apmaciba.cena}</td>
-                            <td>EDIT</td>
+                            <td><a href="#"><button class="btn">Rediģēt</button></a></td>
                         </tr>
                     `
                 })
@@ -47,7 +47,7 @@ $(document).ready(function(){
                             <td>${apmaciba.statuss}</td>
                             <td>${apmaciba.veidotajs}</td>
                             <td>${apmaciba.cena}</td>
-                            <td>EDIT</td>
+                            <td><a href="#"><button class="btn">Skatīt</button></a></td>
                         </tr>
                     `
                 })

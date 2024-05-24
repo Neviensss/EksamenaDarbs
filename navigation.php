@@ -3,9 +3,19 @@
         <nav class="navbar">
             <ul>
                 <li><a href="index.php">Sākums</a></li>
-                <li><a href="#">Kategorijas</a></li>
+                <div class="dropdown">
+                    <li><a href="kursi.php">Kursi</a></li>
+                    <div class="dropdown-content">
+                        <a href="kursi.php?category=Dizains">Dizains</a>
+                        <a href="kursi.php?category=Programmesana">Programmēšana</a>
+                        <a href="kursi.php?category=Personiga">Personīgā attīstība</a>
+                        <a href="kursi.php?category=Valodas">Valodas</a>
+                        <a href="kursi.php?category=Maksla">Māksla un radošums</a>
+                        <a href="kursi.php?category=Fotografija">Fotogrāfija</a>
+                        <a href="kursi.php?category=Muzika">Mūzika</a>
+                    </div>
+                </div>
                 <li><a href="joinAsMaster.php">Māci ar mums</a></li>
-                <li><a href="about.php">Par mums</a></li>
                 <?php
                     if (!isset($_SESSION['Lietotajvards'])){
                         echo "<li><a class='auth' href='loginReg/login.php'>Ielogoties</a></li>";

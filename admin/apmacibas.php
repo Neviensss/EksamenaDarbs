@@ -1,5 +1,6 @@
 <?php
 session_start();
+require("../connect.php");
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +18,14 @@ session_start();
 <body>
     <?php
     if(isset($_SESSION['Lietotajvards'])){
+        $lietotajvards = $_SESSION["Lietotajvards"];
+        $loma_atrasana_SQL = "SELECT loma FROM users WHERE lietotajvards = '$lietotajvards'";
+        $atrasanas_rezultats = mysqli_query($savienojums, $loma_atrasana_SQL);
+        $ieraksts = mysqli_fetch_assoc($atrasanas_rezultats);
+
+        if($ieraksts["loma"] == "Administrators"){
+
         include("adminNav.php");
-        require("../connect.php");
     ?>
 
 <div class="content">
@@ -40,6 +47,9 @@ session_start();
         </div>
     </div>
     <?php
+        }else{
+            header("location:../index.php");
+        }
     }else{
         header("location:../loginReg/login.php");
     }

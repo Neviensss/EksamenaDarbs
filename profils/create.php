@@ -18,13 +18,14 @@
 <body>
     <?php
         if(isset($_SESSION['Lietotajvards'])){
-            include("../profils/profileNav.php");
+            include("profileNav.php");
 
             if(isset($_POST["addCourse"])){
                 $l_nosaukums = $_POST['Nosaukums'];
                 $l_apraksts = $_POST['Apraksts'];
                 $l_attels = $_POST['Attels'];
                 $l_cena = $_POST['Cena'];
+                $l_cat = $_POST['kategorija'];
                 $lietotajvards = $_SESSION['Lietotajvards'];
                 $select_lietot_id = "SELECT ID FROM users WHERE lietotajvards = '$lietotajvards'";
                 $lietotID_result = mysqli_query($savienojums, $select_lietot_id);
@@ -32,10 +33,10 @@
                 $l_veidotajs = $lietotID['ID'];
         
             
-                $add_course_SQL = "INSERT INTO apmacibas (Nosaukums, Apraksts, Attels, Statuss, Veidotajs, Cena) VALUES ('$l_nosaukums', '$l_apraksts', '$l_attels', 'Iesniegts', '$l_veidotajs', '$l_cena')";
+                $add_course_SQL = "INSERT INTO apmacibas (Nosaukums, Apraksts, Attels, Statuss, Veidotajs, Cena, Kategorija) VALUES ('$l_nosaukums', '$l_apraksts', '$l_attels', 'Iesniegts', '$l_veidotajs', '$l_cena', '$l_cat')";
                 $add_result = mysqli_query($savienojums, $add_course_SQL);
                 if($add_result){
-                    echo "Kurss veiksmīgi izveidots!";
+                    echo "Kursa izveides pieteikums veiksmīgi izveidots!";
                 }
             }
         ?>
@@ -46,13 +47,24 @@
                 <input type="text" id="Nosaukums" name="Nosaukums" required>
                 
                 <label for="Apraksts">Apraksts:</label>
-                <input type="text" id="Apraksts" name="Apraksts" required>
+                <textarea id="Apraksts" name="Apraksts" required></textarea><br>
                 
                 <label for="Attels">Attēls:</label>
                 <input type="text" id="Attels" name="Attels" required>
 
                 <label for="Cena">Cena:</label>
-                <input type="number" id="Cena" name="Cena" step="0.01" required>
+                <input type="number" id="Cena" name="Cena" step="0.01" min="0.50" required>
+
+                <label for="kategorija">Kategorija:</label><br>
+                <select id="kategorija" name="kategorija" required>
+                    <option value="Dizains">Dizains</option>
+                    <option value="Programmesana">Programmēšana</option>
+                    <option value="Personiga">Personīgā attīstība</option>
+                    <option value="Valodas">Valodas</option>
+                    <option value="Maksla">Māksla un radošums</option>
+                    <option value="Fotografija">Fotogrāfija</option>
+                    <option value="Muzika">Mūzika</option>
+                </select><br>
                 
                 <button type="submit" class="btn" name="addCourse">Pievienot</button>
             </form>

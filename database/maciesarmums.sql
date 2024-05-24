@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 11:01 AM
+-- Generation Time: May 24, 2024 at 10:43 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -34,19 +34,22 @@ CREATE TABLE `apmacibas` (
   `Attels` varchar(255) COLLATE utf8_latvian_ci NOT NULL,
   `Statuss` enum('Iesniegts','Atverts','Apstiprinats','Noraidits','Slepts') COLLATE utf8_latvian_ci NOT NULL,
   `Veidotajs` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
-  `Cena` float NOT NULL
+  `Cena` float NOT NULL,
+  `kategorija` enum('Dizains','Programmesana','Personiga','Valodas','Maksla','Fotografija','Muzika') COLLATE utf8_latvian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
 
 --
 -- Dumping data for table `apmacibas`
 --
 
-INSERT INTO `apmacibas` (`ID`, `Nosaukums`, `Apraksts`, `Attels`, `Statuss`, `Veidotajs`, `Cena`) VALUES
-(1, 'Test', 'daddadadada', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Atverts', 'Niks', 29.99),
-(2, 'Test2', 'adadda', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Atverts', '', 59.99),
-(5, 'testssssss', 'dadadsdad', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Atverts', '', 4.99),
-(11, 'PagaiduKurss', 'aaaaaafafdfsfsdgsdgsgsdgsg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '4', 6.59),
-(12, 'PagaiduKurss2', 'aaaaaafafdfsfsdgsdgsgsdgsg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '4', 0.11);
+INSERT INTO `apmacibas` (`ID`, `Nosaukums`, `Apraksts`, `Attels`, `Statuss`, `Veidotajs`, `Cena`, `kategorija`) VALUES
+(1, 'Test', 'daddadadada', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', 'Niks', 29.99, 'Dizains'),
+(2, 'Test2', 'adadda', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Iesniegts', '', 59.99, 'Dizains'),
+(5, 'testssssss', 'dadadsdad', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Atverts', '', 4.99, 'Dizains'),
+(11, 'PagaiduKurss', 'aaaaaafafdfsfsdgsdgsgsdgsg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '4', 6.59, 'Dizains'),
+(12, 'PagaiduKurss2', 'aaaaaafafdfsfsdgsdgsgsdgsg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '4', 0.11, 'Dizains'),
+(14, 'PagaiduKurss3', 'adada', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '4', 0.5, 'Valodas'),
+(15, 'PagaiduKurss4', 'adhdgdgdg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '4', 0.51, 'Programmesana');
 
 -- --------------------------------------------------------
 
@@ -94,10 +97,8 @@ CREATE TABLE `pirkumi` (
 --
 
 INSERT INTO `pirkumi` (`PirkumsID`, `kurss_id`, `cena`, `pirceja_id`, `pirkuma_datums`) VALUES
-('pi_3PIDjACeH1OIpMm11f3n88Jl', 2, '59.99', 4, '2024-05-19 17:41:00'),
-('pi_3PIDkUCeH1OIpMm11OKJFGtO', 1, '29.99', 4, '2024-05-19 17:42:21'),
-('pi_3PIHEECeH1OIpMm10OMss2DG', 5, '4.99', 4, '2024-05-19 21:25:17'),
-('pi_3PITIxCeH1OIpMm11YyZ5mNB', 2, '59.99', 4, '2024-05-20 10:18:57');
+('pi_3PITIxCeH1OIpMm11YyZ5mNB', 2, '59.99', 3, '2024-05-20 10:18:57'),
+('pi_3PJsCCCeH1OIpMm11Hg4dJmc', 11, '6.59', 4, '2024-05-24 07:05:47');
 
 -- --------------------------------------------------------
 
@@ -170,13 +171,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `apmacibas`
 --
 ALTER TABLE `apmacibas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `lietot_piet`
 --
 ALTER TABLE `lietot_piet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `logfiles`

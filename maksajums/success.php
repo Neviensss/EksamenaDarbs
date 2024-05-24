@@ -47,7 +47,7 @@
                                                 VALUES ('$transactionID', $kurss_id, {$kurss['Cena']}, $user_id, NOW())";
 
                             if (mysqli_query($savienojums, $insert_purchase)) {
-                                $statusMsg = "Maksājums veiksmīgi apstrādāts un ieraksts pievienots datubāzei!";
+                                $statusMsg = "Maksājums veiksmīgi apstrādāts!";
                                 $dataMsg = "
                                     <p>Veiksmīgi veikts maksājums par kursu:</p>
                                     <h2>{$kurss['Nosaukums']}</h2>
