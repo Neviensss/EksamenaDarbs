@@ -63,7 +63,7 @@
         while ($row = mysqli_fetch_assoc($kurss_res)) {
             ?>
             <div class="box">
-                <img src="<?php echo $row['Attels']; ?>" alt="<?php echo $row['Nosaukums']; ?>">
+                <img src="<?php echo 'profils/' . $row['Attels']; ?>" alt="<?php echo $row['Nosaukums']; ?>">
                 <h2><?php echo $row['Nosaukums']; ?></h2>
                 <?php
                 if (isset($_SESSION['Lietotajvards'])) {
@@ -84,7 +84,7 @@
                 <button class="checkButton"
                         data-kurss-id="<?php echo $row['ID']; ?>"
                         data-kurss-nosaukums="<?php echo $row['Nosaukums']; ?>"
-                        data-kurss-attels="<?php echo $row['Attels']; ?>"
+                        data-kurss-attels="<?php echo 'profils/' . $row['Attels']; ?>"
                         data-kurss-apraksts="<?php echo $row['Apraksts']; ?>">Apskatīt</button>
             </div>
             <?php

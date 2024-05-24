@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2024 at 10:43 AM
+-- Generation Time: May 24, 2024 at 12:15 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -43,13 +43,9 @@ CREATE TABLE `apmacibas` (
 --
 
 INSERT INTO `apmacibas` (`ID`, `Nosaukums`, `Apraksts`, `Attels`, `Statuss`, `Veidotajs`, `Cena`, `kategorija`) VALUES
-(1, 'Test', 'daddadadada', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', 'Niks', 29.99, 'Dizains'),
-(2, 'Test2', 'adadda', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Iesniegts', '', 59.99, 'Dizains'),
-(5, 'testssssss', 'dadadsdad', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Atverts', '', 4.99, 'Dizains'),
-(11, 'PagaiduKurss', 'aaaaaafafdfsfsdgsdgsgsdgsg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '4', 6.59, 'Dizains'),
-(12, 'PagaiduKurss2', 'aaaaaafafdfsfsdgsdgsgsdgsg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '4', 0.11, 'Dizains'),
-(14, 'PagaiduKurss3', 'adada', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '4', 0.5, 'Valodas'),
-(15, 'PagaiduKurss4', 'adhdgdgdg', 'https://img.freepik.com/free-vector/flat-design-online-courses-illustration_23-2148528493.jpg', 'Apstiprinats', '4', 0.51, 'Programmesana');
+(16, 'PagaiduKurss', 'apraksts', 'uploads/maths-online-course-economics-university-department-internet-classes-accounting-lessons-bookkeeping-mathematics-textbooks-digital-archive_335657-3441.jpg', 'Apstiprinats', '4', 0.77, 'Dizains'),
+(17, 'PagaiduKurss2', 'apraksts', 'uploads/students-with-laptops-studying-huge-laptop-with-graduation-cap-free-online-courses-online-certificate-courses-online-business-school-concept_335657-792.jpg', 'Apstiprinats', '4', 0.84, 'Valodas'),
+(18, 'PagaiduKurss3', 'apraksts', 'uploads/hand-drawn-flat-design-mba-illustration-illustration_23-2149331623.jpg', 'Apstiprinats', '4', 0.77, 'Muzika');
 
 -- --------------------------------------------------------
 
@@ -91,14 +87,6 @@ CREATE TABLE `pirkumi` (
   `pirceja_id` int(11) NOT NULL,
   `pirkuma_datums` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
-
---
--- Dumping data for table `pirkumi`
---
-
-INSERT INTO `pirkumi` (`PirkumsID`, `kurss_id`, `cena`, `pirceja_id`, `pirkuma_datums`) VALUES
-('pi_3PITIxCeH1OIpMm11YyZ5mNB', 2, '59.99', 3, '2024-05-20 10:18:57'),
-('pi_3PJsCCCeH1OIpMm11Hg4dJmc', 11, '6.59', 4, '2024-05-24 07:05:47');
 
 -- --------------------------------------------------------
 
@@ -171,7 +159,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `apmacibas`
 --
 ALTER TABLE `apmacibas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `lietot_piet`
@@ -190,17 +178,6 @@ ALTER TABLE `logfiles`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `pirkumi`
---
-ALTER TABLE `pirkumi`
-  ADD CONSTRAINT `pirkumi_ibfk_1` FOREIGN KEY (`kurss_id`) REFERENCES `apmacibas` (`ID`),
-  ADD CONSTRAINT `pirkumi_ibfk_2` FOREIGN KEY (`pirceja_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

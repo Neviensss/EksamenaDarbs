@@ -129,6 +129,7 @@ footer .copy h2{
 
 .box-container .box img {
     max-width: 100%;
+    min-height: 228px;
     display: block;
     margin-bottom: 10px;
   }
@@ -388,6 +389,17 @@ display: block;
 .ievade input[type="text"]:focus, .ievade input[type="email"]:focus, .ievade input[type="password"]:focus, .ievade input[type="number"]:hover, select:focus{
     border: .1rem solid var(--maincolor);
 }
+
+.ievade input[type="file"]{
+    border: none;
+    border-radius: 0;
+}
+
+.ievade input[type="file"]:hover{
+    border: none;
+    border-radius: 0;
+}
+
 
 textarea{
     background: #f6f6f6;
