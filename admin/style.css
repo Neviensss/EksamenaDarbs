@@ -215,43 +215,38 @@ td:last-child, th:last-child{
 
 /* Modal sadaļa */
 
-.modal{
-    position: fixed;
-    background: rgba(0, 0, 0, .5);
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+.modal {
     display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
     justify-content: center;
     align-items: center;
 }
 
-.modal.modalActive{
-    display: flex;
+.modalContent {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
 }
 
-.modal .apply{
-    background: #ddd;
-    width: 50rem;
-    border-radius: .5rem;
-    box-shadow: 0 .5rem 1rem #666;
-    padding: 2rem;
-    position: relative;
+.close_modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-.apply .close_modal{
-    position: absolute;
-    right: 2rem;
-    background: var(--maincolor);
-    color: #fff;
-    padding: .5rem;
-    font-size: 0.7rem;
-    border-radius: .5rem;
+.close_modal:hover, .close_modal:focus {
+    color: black;
+    text-decoration: none;
     cursor: pointer;
-}
-
-.apply .close_modal:hover{
-    background: #666;
 }

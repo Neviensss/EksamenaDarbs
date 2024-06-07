@@ -17,35 +17,37 @@ require("../connect.php");
     <?php
         if(isset($_SESSION['Lietotajvards'])){
             include("profileNav.php");
-        $lietotajvards = $_SESSION['Lietotajvards'];
+            $lietotajvards = $_SESSION['Lietotajvards'];
 
-        $query = "SELECT ap.ID, ap.Nosaukums, ap.Attels 
-                FROM pirkumi p
-                JOIN apmacibas ap ON p.kurss_id = ap.ID
-                JOIN users u ON p.pirceja_id = u.ID
-                WHERE u.Lietotajvards = '$lietotajvards'";
+            $query = "SELECT ap.ID, ap.Nosaukums, ap.Attels 
+                      FROM pirkumi p
+                      JOIN apmacibas ap ON p.kurss_id = ap.ID
+                      JOIN users u ON p.pirceja_id = u.ID
+                      WHERE u.Lietotajvards = '$lietotajvards'";
 
-        $result = mysqli_query($savienojums, $query);
-
+            $result = mysqli_query($savienojums, $query);
         ?>
         <h2 class="prof">Iegādātie kursi</h2>
         <div class="box-container">
         <?php
-        while ($row = mysqli_fetch_assoc($result)) {
-            ?>
+            while ($row = mysqli_fetch_assoc($result)) {
+        ?>
             <div class="box">
-                <img src="<?php echo $row['Attels']; ?>" alt="Course Image">
+                <img src="<?php echo $row['Attels']; ?>" alt="Attels">
                 <h2><?php echo $row['Nosaukums']; ?></h2>
-                <button type="submit" class="openButton">Skatīt</button>
+                <form action="kurssDetails.php" method="GET">
+                    <input type="hidden" name="kurss_id" value="<?php echo $row['ID']; ?>">
+                    <button type="submit" class="openButton">Skatīt</button>
+                </form>
             </div>
-            <?php
-        }
-    ?>
+        <?php
+            }
+        ?>
         </div>
     <?php
-    }else{
-        header("location:../loginReg/login.php");
-    }
+        }else{
+            header("location:../loginReg/login.php");
+        }
         include("../footer.php");
     ?>
 </body>

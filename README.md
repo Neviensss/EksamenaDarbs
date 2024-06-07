@@ -8,8 +8,8 @@ Tās mērķis ir sniegt interesentiem pietiekošu daudzumu ar dažāda veida mei
 - [x] - Izveidot Reģistrācijas sadaļu
 - [x] - Izveidot Ielogošanās sadaļu
 - [x] - Izveidot Sākuma sadaļu
-- [ ] - Uzlabot un papildināt lietotāja personīgā profila sadaļu
-- [ ] - Papildināt Sākuma sadaļu vizuāli un funkcionāli
+- [x] - Uzlabot un papildināt lietotāja personīgā profila sadaļu
+- [x] - Papildināt Sākuma sadaļu vizuāli un funkcionāli
 - [x] - Izveidot Administrācijas sadaļu
 - [ ] - Papildināt Administrācijas sadaļu vizuāli un funkcionāli
 - [ ] - Veikt stila izmaiņas attiecīgi izvēlētajam noformējumam
@@ -18,6 +18,6 @@ Tās mērķis ir sniegt interesentiem pietiekošu daudzumu ar dažāda veida mei
 - [x] - Pievienot iespēju veikt maksājumus, kas tiek apstrādāti
 - [ ] - Izvietot vairākus iespējamus kursus, kurus iespējams iegādāties
 - [x] - Dot lietotājam iespēju apskatīt kursa informāciju
-- [ ] - Veikt Debugging pogām, ievades laukiem, maksājumiem, profila izveidei, e-pasta maiņai, lapu pārlādei, sesijām
-- [ ] - Veikt Debugging joinAsMaster failā, saistībā ar veidotāja lomu un atkārtotu pieteikšanos
-- [ ] - Veikt izmaiņas ar Role, priekš failiem kas saistīti ar kursiem
+- [x] - Veikt Debugging pogām, ievades laukiem, maksājumiem, profila izveidei, e-pasta maiņai, lapu pārlādei, sesijām
+- [x] - Veikt Debugging joinAsMaster failā, saistībā ar veidotāja lomu un atkārtotu pieteikšanos
+- [x] - Veikt izmaiņas ar Role, priekš failiem kas saistīti ar kursiem

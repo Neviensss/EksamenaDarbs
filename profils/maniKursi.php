@@ -2,7 +2,6 @@
 session_start();
 require("../connect.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -14,41 +13,38 @@ require("../connect.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
 </head>
 <body>
-<?php
-        if(isset($_SESSION['Lietotajvards'])){
-            include("profileNav.php");
-            $lietotajvards = $_SESSION['Lietotajvards'];
+
+        <?php
+        if (!isset($_SESSION['Lietotajvards'])) {
+            header("location:../loginReg/login.php");
+            exit;
+        }
+
+        include("profileNav.php");
+        $lietotajvards = $_SESSION['Lietotajvards'];
 
         $select_user_id = "SELECT ID FROM users WHERE lietotajvards = '$lietotajvards'";
-            $user_result = mysqli_query($savienojums, $select_user_id);
-            $user = mysqli_fetch_assoc($user_result);
-            $lietotajs = $user['ID'];
+        $user_result = mysqli_query($savienojums, $select_user_id);
+        $user = mysqli_fetch_assoc($user_result);
+        $lietotajs = $user['ID'];
 
-        $query = "SELECT Nosaukums, Attels from apmacibas WHERE Veidotajs='$lietotajs'";
-
+        $query = "SELECT id, Nosaukums, Attels FROM apmacibas WHERE Veidotajs='$lietotajs'";
         $result = mysqli_query($savienojums, $query);
 
         ?>
-        <h2 class="prof">Mani kursi</h2>
-        <div class="box-container">
-        <?php
-        while ($row = mysqli_fetch_assoc($result)) {
-            ?>
+    <h2 class="prof">Mani kursi</h2>
+    <div class="box-container">
+        <?php while ($row = mysqli_fetch_assoc($result)): ?>
             <div class="box">
-                <img src="<?php echo $row['Attels']; ?>" alt="Course Image">
+                <img src="<?php echo $row['Attels']; ?>" alt="Attels">
                 <h2><?php echo $row['Nosaukums']; ?></h2>
-                <button type="submit" class="editButton">Rediģēt</button>
+                <form action="editKurss.php" method="GET">
+                    <input type="hidden" name="kurss_id" value="<?php echo $row['id']; ?>">
+                    <button type="submit" class="editButton">Rediģēt</button>
+                </form>
             </div>
-            <?php
-        }
-    ?>
-        </div>
-    <?php
-    }else{
-        header("location:../loginReg/login.php");
-    }
-        include("../footer.php");
-    ?>
-
+        <?php endwhile; ?>
+    </div>
+    <?php include("../footer.php"); ?>
 </body>
 </html>

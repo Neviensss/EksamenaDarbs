@@ -5,15 +5,18 @@
     $apm_result = mysqli_query($savienojums, $apm_SQL);
 
     while($row = mysqli_fetch_array($apm_result)){
-        $json[] = array(
-            'nosaukums' => $row['Nosaukums'],
-            'apraksts' => $row['Apraksts'],
-            'attels' => $row['Attels'],
-            'statuss' => $row['Statuss'],
-            'veidotajs' => $row['Veidotajs'],
-            'cena' => $row['Cena'],
-            'id' => $row['ID']
-        );
+        $veid_SQL = "SELECT Lietotajvards FROM users WHERE ID = " . $row['Veidotajs'] . "";
+        $veid_result = mysqli_query($savienojums, $veid_SQL);
+        $veidotajs = mysqli_fetch_assoc($veid_result);
+            $json[] = array(
+                'nosaukums' => $row['Nosaukums'],
+                'apraksts' => $row['Apraksts'],
+                'attels' => "../profils/" . $row['Attels'],
+                'statuss' => $row['Statuss'],
+                'veidotajs' => $veidotajs['Lietotajvards'],
+                'cena' => $row['Cena'],
+                'id' => $row['ID']
+            );
     }
 
     $jsonstring = json_encode($json);

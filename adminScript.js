@@ -47,7 +47,8 @@ $(document).ready(function(){
                             <td>${apmaciba.statuss}</td>
                             <td>${apmaciba.veidotajs}</td>
                             <td>${apmaciba.cena}</td>
-                            <td><a href="#"><button class="btn">Skatīt</button></a></td>
+                            <td><a href="#"><button class="piet-acpt btn">Apstiprināt</button></a></td>
+                            <td><a href="#"><button class="piet-nor btn">Noraidīt</button></a></td>
                         </tr>
                     `
                 })
@@ -97,6 +98,25 @@ $(document).ready(function(){
             const id = $(element).attr('pietID')
             $.post('noraidVeid.php', {id}, (response) =>{
                 fetchLietPiet()
+            })
+        }
+    })
+
+    $(document).on('click', '.piet-acpt', (e) => {
+        e.preventDefault();
+        const element = $(this)[0].activeElement.parentElement.parentElement.parentElement
+        const id = $(element).attr('apmID')
+        $.post('apstiprinaPiet.php', {id}, (response) =>{
+            fetchApmacPiet()
+        })
+    })
+
+    $(document).on('click', '.piet-nor', (e) => {
+        if(confirm('Vai tiešām vēlies noraidīt šo pieteikumu?')){
+            const element = $(this)[0].activeElement.parentElement.parentElement.parentElement
+            const id = $(element).attr('apmID')
+            $.post('noraidPiet.php', {id}, (response) =>{
+                fetchApmacPiet()
             })
         }
     })

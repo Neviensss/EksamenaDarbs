@@ -97,12 +97,15 @@ header nav ul li a:hover{
     padding: 1rem 0;
 }
 
-footer .copy h2{
-    width: 100%;
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1.2rem 0;
     text-align: center;
-    padding: 1.2rem 0rem;
-    background: rgba(48, 48, 48, 0.1);
-    color: #111;
+}
+
+footer .copy h2 {
+    font-size: 1.5rem;
 }
 
 #popular h2, #new-kursi h2{
@@ -118,13 +121,18 @@ footer .copy h2{
     margin: auto;
 }
 
-.box-container .box {
+.box-container .box, .box-container .boxcat{
     width: 250px;
     margin: 25px;
     padding: 10px;
     border: 1px solid #a1a1a1;
     text-align: center;
-    background: rgb(196, 196, 196)
+    background: rgb(196, 196, 196);
+}
+
+.box-container .boxcat:hover{
+    background: rgb(180, 180, 180);
+    cursor: pointer;
 }
 
 .box-container .box img {
@@ -136,6 +144,11 @@ footer .copy h2{
 
 .box h2 {
     margin: 0;
+}
+
+.boxcat a {
+    margin: 0;
+    color: #111;
 }
 
 .prof{
@@ -181,6 +194,8 @@ footer .copy h2{
 .profileImg{
     height: 2rem;
     cursor: pointer;
+    border-radius: 2rem;
+    width: 2rem;
 }
 
 .btn{

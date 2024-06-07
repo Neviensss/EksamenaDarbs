@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2024 at 12:15 PM
+-- Generation Time: Jun 07, 2024 at 08:32 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -35,7 +35,7 @@ CREATE TABLE `apmacibas` (
   `Statuss` enum('Iesniegts','Atverts','Apstiprinats','Noraidits','Slepts') COLLATE utf8_latvian_ci NOT NULL,
   `Veidotajs` varchar(50) COLLATE utf8_latvian_ci NOT NULL,
   `Cena` float NOT NULL,
-  `kategorija` enum('Dizains','Programmesana','Personiga','Valodas','Maksla','Fotografija','Muzika') COLLATE utf8_latvian_ci NOT NULL
+  `kategorija` enum('Dizains','Programmēšana','Personīgā attīstība','Valodas','Māksla','Fotogrāfija','Mūzika') COLLATE utf8_latvian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
 
 --
@@ -45,7 +45,30 @@ CREATE TABLE `apmacibas` (
 INSERT INTO `apmacibas` (`ID`, `Nosaukums`, `Apraksts`, `Attels`, `Statuss`, `Veidotajs`, `Cena`, `kategorija`) VALUES
 (16, 'PagaiduKurss', 'apraksts', 'uploads/maths-online-course-economics-university-department-internet-classes-accounting-lessons-bookkeeping-mathematics-textbooks-digital-archive_335657-3441.jpg', 'Apstiprinats', '4', 0.77, 'Dizains'),
 (17, 'PagaiduKurss2', 'apraksts', 'uploads/students-with-laptops-studying-huge-laptop-with-graduation-cap-free-online-courses-online-certificate-courses-online-business-school-concept_335657-792.jpg', 'Apstiprinats', '4', 0.84, 'Valodas'),
-(18, 'PagaiduKurss3', 'apraksts', 'uploads/hand-drawn-flat-design-mba-illustration-illustration_23-2149331623.jpg', 'Apstiprinats', '4', 0.77, 'Muzika');
+(18, 'PagaiduKurss3', 'apraksts', 'uploads/hand-drawn-flat-design-mba-illustration-illustration_23-2149331623.jpg', 'Apstiprinats', '4', 0.77, 'Mūzika'),
+(19, 'PagaiduKurss4', 'apraksts', 'uploads/online-courses-colorful-cartoon-characters-watching-video-tutorial-business-seminar-elearning-webinar-online-learning-remote-studying-vector-isolated-concept-metaphor-illustration_335657-2793.jpg', 'Apstiprinats', '4', 0.68, 'Valodas');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `klases`
+--
+
+CREATE TABLE `klases` (
+  `id` int(11) NOT NULL,
+  `kurss_id` int(11) NOT NULL,
+  `nosaukums` varchar(255) COLLATE utf8_latvian_ci NOT NULL,
+  `apraksts` text COLLATE utf8_latvian_ci DEFAULT NULL,
+  `video_url` varchar(255) COLLATE utf8_latvian_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
+
+--
+-- Dumping data for table `klases`
+--
+
+INSERT INTO `klases` (`id`, `kurss_id`, `nosaukums`, `apraksts`, `video_url`) VALUES
+(2, 19, 'Senās mākslas', 'Izpētiet mākslu senajās civilizācijās, piemēram, Ēģiptē, Grieķijā un Romā. Apmeklējiet tēmas, tehnikas un mākslas nozīmi šajās kultūrās.', 'https://www.youtube.com/embed/U5BmPuzpVUo?si=910g3o5olTVyI-Yc'),
+(3, 19, 'Renesanses māksla', 'Iededziet mākslas atdzimšanu Renesanses periodā. Uzziniet par pamanāmajiem māksliniekiem, piemēram, Leonardo da Vinči, Mikelanģelo un Rafaēlu.', '');
 
 -- --------------------------------------------------------
 
@@ -88,6 +111,13 @@ CREATE TABLE `pirkumi` (
   `pirkuma_datums` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_latvian_ci;
 
+--
+-- Dumping data for table `pirkumi`
+--
+
+INSERT INTO `pirkumi` (`PirkumsID`, `kurss_id`, `cena`, `pirceja_id`, `pirkuma_datums`) VALUES
+('pi_3POGvPCeH1OIpMm106hJfzgM', 19, '0.68', 4, '2024-06-05 10:18:39');
+
 -- --------------------------------------------------------
 
 --
@@ -126,6 +156,13 @@ ALTER TABLE `apmacibas`
   ADD KEY `Veidotajs_FK_1` (`Veidotajs`);
 
 --
+-- Indexes for table `klases`
+--
+ALTER TABLE `klases`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kurss_id` (`kurss_id`);
+
+--
 -- Indexes for table `lietot_piet`
 --
 ALTER TABLE `lietot_piet`
@@ -159,7 +196,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `apmacibas`
 --
 ALTER TABLE `apmacibas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `klases`
+--
+ALTER TABLE `klases`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `lietot_piet`
@@ -178,6 +221,16 @@ ALTER TABLE `logfiles`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `klases`
+--
+ALTER TABLE `klases`
+  ADD CONSTRAINT `klases_ibfk_1` FOREIGN KEY (`kurss_id`) REFERENCES `apmacibas` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -47,13 +47,12 @@
                                                 VALUES ('$transactionID', $kurss_id, {$kurss['Cena']}, $user_id, NOW())";
 
                             if (mysqli_query($savienojums, $insert_purchase)) {
-                                $statusMsg = "Maksājums veiksmīgi apstrādāts!";
                                 $dataMsg = "
                                     <p>Veiksmīgi veikts maksājums par kursu:</p>
                                     <h2>{$kurss['Nosaukums']}</h2>
                                     <p>Cena: " . number_format($kurss['Cena'], 2) . " EUR</p>
                                     <p>Lai dotos uz kursu, spiediet zemāk esošo pogu:</p>
-                                    <a class='btn' href='../index.php'>Doties uz kursu</a>
+                                    <a class='btn' href='../profils/iegadatieKursi.php'>Doties uz kursu</a>
                                 ";
                             } else {
                                 $statusMsg = "Kļūda!";

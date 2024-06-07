@@ -46,6 +46,22 @@ require('../connect.php');
         </table>
     </div>
 </div>
+
+<div class="modal" style="display: none;">
+        <div class="modalContent">
+            <span class="close_modal">&times;</span>
+            <h2 id="modalNosaukums"></h2>
+            <p id="modalApraksts"></p>
+            <img id="modalAttels" src="" alt="Attels">
+            <p>Statuss: <span id="modalStatuss"></span></p>
+            <p>Veidotājs: <span id="modalVeidotajs"></span></p>
+            <p>Cena: <span id="modalCena"></span></p>
+            <p>Kategorija: <span id="modalKategorija"></span></p>
+            <input type="hidden" id="modalKurssID">
+        </div>
+    </div>
+
+
     <?php
         }else{
             header("location:../index.php");

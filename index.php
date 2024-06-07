@@ -36,20 +36,22 @@
     }
         ?>
     <section id="popular">
-        <h2>Populārākās kategorijas:</h2>
+        <h2>Kategorijas:</h2>
         <div class="box-container">
-        <div class="box">
-            <h2>Kategorija1</h2>
-        </div>
-        <div class="box">
-            <h2>Kategorija2</h2>
-        </div>
-        <div class="box">
-            <h2>Kategorija3</h2>
-        </div>
-        <div class="box">
-            <h2>Kategorija4</h2>
-        </div>
+        <?php
+        $kat_sql = "SELECT kategorija FROM apmacibas LIMIT 3";
+        $kat_res = mysqli_query($savienojums, $kat_sql);
+
+        while ($row = mysqli_fetch_assoc($kat_res)) {
+            ?>
+            <div class="boxcat">
+                <?php
+                    echo "<a href='kursi.php?category=".$row['kategorija']."'>". "<h2>". $row['kategorija'] ."</h2>" ."</a>";
+                ?>
+            </div>
+            <?php
+            }
+            ?>
         
         </div>
     </section>
