@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("../connect.php");
+require("../connect.php"); #Veic savienojumu ar datubāzi
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ require("../connect.php");
 <body>
 
 <?php
-if (isset($_SESSION['Lietotajvards'])) {
+if (isset($_SESSION['Lietotajvards'])) { #Pārbauda vai lietotājs ir ielogojies
     include("profileNav.php");
 
     $lietotajvards = $_SESSION['Lietotajvards'];
@@ -27,7 +27,7 @@ if (isset($_SESSION['Lietotajvards'])) {
         $row = mysqli_fetch_assoc($user_res);
         $epasts = $row['epasts'];
         $profile_image = $row['attels'] ? $row['attels'] : 'uploads/profile-circle-icon-2048x2048-cqe5466q.png';
-    }
+    } #Tiek atlasīta lietotāja informācija un profila attēls
 
     if (isset($_POST['mainitEpastu'])) {
         $newEmail = $_POST['epasts'];
@@ -39,6 +39,7 @@ if (isset($_SESSION['Lietotajvards'])) {
             echo "Kļūda mainot epastu!";
         }
     }
+    #Tiek mainīta epasta adrese
 
     if (isset($_POST['mainitParoli'])) {
         $oldPass = $_POST['pagaidPass'];
@@ -48,14 +49,14 @@ if (isset($_SESSION['Lietotajvards'])) {
         $sql = "SELECT parole FROM users WHERE lietotajvards = '$lietotajvards'";
         $result = mysqli_query($savienojums, $sql);
 
-        if ($result->num_rows > 0) {
+        if ($result->num_rows > 0) { #Veic pārbaudi, vai lietotājs eksistē
             $row = $result->fetch_assoc();
             $pagaidPass = $row['parole'];
-            if (password_verify($oldPass, $pagaidPass)) {
+            if (password_verify($oldPass, $pagaidPass)) { #Salīdzina parole 
                 if ($newPass === $newPass2) {
-                    $hashPass = password_hash($newPass, PASSWORD_DEFAULT);
+                    $hashPass = password_hash($newPass, PASSWORD_DEFAULT); #Jaunā parole tiek šifrēta
 
-                    $update_sql = "UPDATE users SET parole = '$hashPass' WHERE lietotajvards = '$lietotajvards'";
+                    $update_sql = "UPDATE users SET parole = '$hashPass' WHERE lietotajvards = '$lietotajvards'"; #Paroles informācija tiek mainīta
                     if ($savienojums->query($update_sql) === TRUE) {
                         echo "Parole veiksmīgi nomainīta.";
                     } else {
@@ -69,15 +70,16 @@ if (isset($_SESSION['Lietotajvards'])) {
             }
         }
     }
+    #Tiek mainīta lietotāja parole
 
-    if (isset($_POST['mainitAttelu'])) {
-        $target_dir = "uploads/";
+    if (isset($_POST['mainitAttelu'])) { #Tiek apstrādāta attēla maiņa
+        $target_dir = "uploads/"; #Faila augšupielādes ceļš
         $target_file = $target_dir . basename($_FILES["profileImage"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
         if (isset($_FILES["profileImage"])) {
-            $check = getimagesize($_FILES["profileImage"]["tmp_name"]);
+            $check = getimagesize($_FILES["profileImage"]["tmp_name"]); #Tiek pārbaudīts attēls
             if ($check !== false) {
                 $uploadOk = 1;
             } else {
@@ -85,17 +87,17 @@ if (isset($_SESSION['Lietotajvards'])) {
                 $uploadOk = 0;
             }
 
-            if (file_exists($target_file)) {
+            if (file_exists($target_file)) { #Pārbauda vai attēls jau neeksistē
                 echo "Attēls jau eksistē.";
                 $uploadOk = 0;
             }
 
-            if ($_FILES["profileImage"]["size"] > 500000) {
+            if ($_FILES["profileImage"]["size"] > 500000) { #Pārbauda faila izmēru
                 echo "Izvēlētais fails ir par lielu.";
                 $uploadOk = 0;
             }
 
-            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") { #Pārbauda vai fails ir attēla tipa
                 echo "Atļauti tikai JPG, JPEG, PNG & GIF faili.";
                 $uploadOk = 0;
             }
@@ -103,7 +105,7 @@ if (isset($_SESSION['Lietotajvards'])) {
             if ($uploadOk == 0) {
                 echo "Attēls netika augšupielādēts.";
             } else {
-                if (move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)) {
+                if (move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)) { #Attēls tiek augšupielādēts un tiek pievienots datubāzē kā klases attēls
                     $update_sql = "UPDATE users SET attels = '$target_file' WHERE lietotajvards = '$lietotajvards'";
                     if (mysqli_query($savienojums, $update_sql) === TRUE) {
                         echo "Profila attēls veiksmīgi nomainīts.";

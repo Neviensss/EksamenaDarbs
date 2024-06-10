@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require("../connect.php");
+    require("../connect.php"); #Veic savienojumu ar datubāzi
 ?>
 
 <!DOCTYPE html>
@@ -17,27 +17,27 @@
 </head>
 <body>
 <?php
-if (isset($_SESSION['Lietotajvards'])) {
+if (isset($_SESSION['Lietotajvards'])) { #Pārbauda vai lietotājs ir ielogojies
     include("profileNav.php");
 
-    if (isset($_POST["addCourse"])) {
+    if (isset($_POST["addCourse"])) { #Pārbauda vai nospiesta pievienošanas poga, atlasot ievadīto informāciju
         $l_nosaukums = $_POST['Nosaukums'];
         $l_apraksts = $_POST['Apraksts'];
         $l_cena = $_POST['Cena'];
         $l_cat = $_POST['kategorija'];
         $lietotajvards = $_SESSION['Lietotajvards'];
 
-        $select_lietot_id = "SELECT ID FROM users WHERE lietotajvards = '$lietotajvards'";
+        $select_lietot_id = "SELECT ID FROM users WHERE lietotajvards = '$lietotajvards'"; #Atlasa lietotāju
         $lietotID_result = mysqli_query($savienojums, $select_lietot_id);
         $lietotID = mysqli_fetch_assoc($lietotID_result);
         $l_veidotajs = $lietotID['ID'];
 
-        $target_dir = "uploads/";
+        $target_dir = "uploads/"; #Faila augšupielādes ceļš
         $target_file = $target_dir . basename($_FILES["Attels"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-        $check = getimagesize($_FILES["Attels"]["tmp_name"]);
+        $check = getimagesize($_FILES["Attels"]["tmp_name"]); #Tiek pārbaudīts attēls
         if ($check !== false) {
             $uploadOk = 1;
         } else {
@@ -45,23 +45,23 @@ if (isset($_SESSION['Lietotajvards'])) {
             $uploadOk = 0;
         }
 
-        if (file_exists($target_file)) {
+        if (file_exists($target_file)) { #Pārbauda vai attēls jau neeksistē
             echo "Attēls jau eksistē.";
             $uploadOk = 0;
         }
 
-        if ($_FILES["Attels"]["size"] > 500000) {
+        if ($_FILES["Attels"]["size"] > 500000) { #Pārbauda faila izmēru
             echo "Izvēlētais fails ir par lielu.";
             $uploadOk = 0;
         }
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") { #Pārbauda vai fails ir attēla tipa
             echo "Atļauti tikai JPG, JPEG, PNG & GIF faili.";
             $uploadOk = 0;
         }
         if ($uploadOk == 0) {
             echo "Attēls netika augšupielādēts.";
         } else {
-            if (move_uploaded_file($_FILES["Attels"]["tmp_name"], $target_file)) {
+            if (move_uploaded_file($_FILES["Attels"]["tmp_name"], $target_file)) { #Attēls tiek augšupielādēts un tiek pievienots datubāzē kā klases attēls
                 $l_attels = $target_file;
                 $add_course_SQL = "INSERT INTO apmacibas (Nosaukums, Apraksts, Attels, Statuss, Veidotajs, Cena, Kategorija) VALUES ('$l_nosaukums', '$l_apraksts', '$l_attels', 'Iesniegts', '$l_veidotajs', '$l_cena', '$l_cat')";
                 $add_result = mysqli_query($savienojums, $add_course_SQL);

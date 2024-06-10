@@ -15,7 +15,7 @@
 
         if(isset($_SESSION['Lietotajvards'])){
 
-        if (!empty($_GET['session_id']) && !empty($_GET['kurss_id']) && !empty($_GET['user_id'])) {
+        if (!empty($_GET['session_id']) && !empty($_GET['kurss_id']) && !empty($_GET['user_id'])) { #Veic pārbaudes pogām un iegūst informāciju par attiecīgajiem ID
             $session_id = $_GET['session_id'];
             $kurss_id = $_GET['kurss_id'];
             $user_id = $_GET['user_id'];
@@ -26,7 +26,7 @@
                 $api_error = $e->getMessage();
             }
 
-            if (empty($api_error) && $checkout_session) {
+            if (empty($api_error) && $checkout_session) { #Pārbauda vai ir veikts jebkāda veida maksājums
                 if (isset($checkout_session->payment_intent)) {
                     try {
                         $paymentIntent = \Stripe\PaymentIntent::retrieve($checkout_session->payment_intent);
@@ -34,19 +34,19 @@
                         $api_error = $e->getMessage();
                     }
 
-                    if (empty($api_error) && $paymentIntent && $paymentIntent->status == "succeeded") {
+                    if (empty($api_error) && $paymentIntent && $paymentIntent->status == "succeeded") { #Pārbauda vai maksājums ir veiksmīgs
                         $transactionID = $paymentIntent->id;
 
-                        $select_kurss = "SELECT Nosaukums, Cena FROM apmacibas WHERE ID = $kurss_id";
+                        $select_kurss = "SELECT Nosaukums, Cena FROM apmacibas WHERE ID = $kurss_id"; #Tiek atlasīta informācija no apmācību tabulas
                         $result = mysqli_query($savienojums, $select_kurss);
 
                         if ($result && mysqli_num_rows($result) > 0) {
                             $kurss = mysqli_fetch_assoc($result);
 
-                            $insert_purchase = "INSERT INTO pirkumi (PirkumsID, kurss_id, cena, pirceja_id, pirkuma_datums)
+                            $insert_purchase = "INSERT INTO pirkumi (PirkumsID, kurss_id, cena, pirceja_id, pirkuma_datums) #Tiek reģistrēts maksājums, maksājuma informācija ievietota datubāzē
                                                 VALUES ('$transactionID', $kurss_id, {$kurss['Cena']}, $user_id, NOW())";
 
-                            if (mysqli_query($savienojums, $insert_purchase)) {
+                            if (mysqli_query($savienojums, $insert_purchase)) { #Veiksmīga maksājuma gadījumā tiek izvadīta informācija, kas noved pie kursa
                                 $dataMsg = "
                                     <p>Veiksmīgi veikts maksājums par kursu:</p>
                                     <h2>{$kurss['Nosaukums']}</h2>
